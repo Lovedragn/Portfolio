@@ -4,11 +4,12 @@ import "./index.css";
 import App from "./App.jsx";
 import Works from "./pages/Works.jsx";
 import Contact from "./pages/Contact.jsx";
+import Navbar from "./components/Navbar.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const router = new createBrowserRouter([
   { path: "/", element: <App /> },
-  { path: "/works", element: <Works/> },
+  { path: "/works", element: <Works /> },
   { path: "/contact", element: <Contact /> },
 ]);
 

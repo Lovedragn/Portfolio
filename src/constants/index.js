@@ -5,8 +5,8 @@ export const navbar = [
 ];
 
 export const socialLinks = [
-  { Linkedin: "https://www.linkedin.com" },
-  { Github: "https://www.github.com" },
+  { text: "Linkedin", link: "https://www.linkedin.com" },
+  { text: "Github", link: "https://www.github.com" },
 ];
 
 export const skills = [

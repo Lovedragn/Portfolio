@@ -1,18 +1,13 @@
-import React from "react";
 import Navbar from "../components/Navbar";
 
 const Hero = () => {
   return (
-    <section className="bg-black w-full h-screen">
-      <div className="flex flex-col justify-center items-center pt-5 bg-white w-full">
-        <nav className="">
-          <Navbar />
-        </nav>
-
+    <section className="bg-black w-full ">
+      <div className="flex flex-col justify-center  items-center py-5 pt-15 bg-white w-full">
         <img
           src="/images/name-svg.svg"
           alt="yy"
-          className="w-[90%] object-contain relative z-10 top-0"
+          className="w-[90%] object-contain"
         />
       </div>
     </section>
