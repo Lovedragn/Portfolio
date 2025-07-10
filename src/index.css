@@ -1,8 +1,39 @@
-@import "tailwindcss"
+@import "tailwindcss";
 
-@layer base {
-  .title {
-    @apply text-10xl font-bold ;
+/* Custom Font: CalSans (Title) */
+@font-face {
+  font-family: 'title';
+  src: url('/src/assets/fonts/CalSans-Bold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Custom Font: DM Sans (Subtitle) */
+@font-face {
+  font-family: 'subtitle';
+  src: url('/src/assets/fonts/DMSans-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Custom Font: Gilroy Light (Paragraph) */
+@font-face {
+  font-family: 'paragraph';
+  src: url('/src/assets/fonts/Gilroy-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Set default body font */
+body {
+  font-family: 'subtitle', sans-serif;
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
   }
 
+ 
 }
