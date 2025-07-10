@@ -13,7 +13,7 @@ const App = () => {
   });
   gsap.ticker.lagSmoothing(0);
   return (
-    <section className="flex justify-center items-center bg-black w-full h-auto text-black">
+    <section className="flex justify-center items-center bg-black w-full h-auto">
       <Hero />
     </section>
   );

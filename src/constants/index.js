@@ -1,8 +1,7 @@
 export const navbar = [
   { text: "Home", link: "/" },
   { text: "Works", link: "/works" },
-  { text: "Contact", link: "/contacts" },
-  { text: "Resume", link: "/" },
+  { text: "Contact", link: "/contact" },
 ];
 
 export const socialLinks = [
