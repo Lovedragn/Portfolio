@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Hero from "./pages/Hero";
 import Navbar from "./components/Navbar";
+import Curser from "./components/Curser";
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
@@ -15,7 +16,8 @@ const App = () => {
 
   return (
     <section className="flex flex-col justify-start items-center bg-black w-full h-auto">
-      <nav className="flex-center w-full absolute top-0 py-2">
+      <Curser/>
+      <nav className="flex-center w-full absolute top-5 py-2">
         <Navbar />
       </nav>
       <Hero />
