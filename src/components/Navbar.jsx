@@ -23,9 +23,9 @@ const Navbar = () => {
             )}
           </li>
         ))}
-        <ul className="flex flex-col items-end  justify-start ">
+        <ul className="flex flex-col items-end justify-start ">
           {socialLinks.map((item, index) => (
-            <li key={index} className="">
+            <li key={index} className="cursor-hover-inverse-target">
               <Link
                 to={item.link}
                 style={{ fontFamily: "paragraph" }}

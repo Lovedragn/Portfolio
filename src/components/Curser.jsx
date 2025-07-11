@@ -4,6 +4,8 @@ import gsap from "gsap";
 const Cursor = () => {
   const [hover, setHover] = useState(false);
   const [inverseHover, setInverseHover] = useState(false);
+  const [hoveredSize, setHoveredSize] = useState({ width: 0, height: 0 });
+
 
   const dotRef = useRef(null);
   const ringRef = useRef(null);
@@ -17,19 +19,25 @@ const Cursor = () => {
       gsap.to(ringRef.current, {
         x,
         y,
-        duration: .6,
+        duration: 0.6,
         ease: "power3.out",
       });
     };
 
-    const handleMouseOver = (e) => {
-      if (e.target.closest(".cursor-hover-target")) {
-        setHover(true);
-      }
-      if (e.target.closest(".cursor-hover-inverse-target")) {
-        setInverseHover(true);
-      }
-    };
+   const handleMouseOver = (e) => {
+  const target = e.target.closest(".cursor-hover-inverse-target");
+  if (target) {
+    const rect = target.getBoundingClientRect();
+    setHoveredSize({ width: rect.width, height: rect.height });
+    setInverseHover(true);
+  }
+
+  const normalTarget = e.target.closest(".cursor-hover-target");
+  if (normalTarget) {
+    setHover(true);
+  }
+};
+
 
     const handleMouseOut = (e) => {
       if (e.target.closest(".cursor-hover-target")) {
@@ -67,20 +75,22 @@ const Cursor = () => {
   }, [hover]);
 
   // Effect 2: inverse-hover (scale up + hide dot)
-  useEffect(() => {
-    gsap.to(dotRef.current, {
-      scale: inverseHover ? 3 : 1,
-      opacity: inverseHover ? 0 : 1,
-      duration: 0.3,
-      ease: "power3.out",
-    });
+ useEffect(() => {
+  gsap.to(dotRef.current, {
+    opacity: inverseHover ? 0 : 1,
+    duration: 0.3,
+    ease: "power3.out",
+  });
 
-    gsap.to(ringRef.current, {
-      scale: inverseHover ? 2 : 1,
-      duration: 0.3,
-      ease: "power3.out",
-    });
-  }, [inverseHover]);
+  gsap.to(ringRef.current, {
+    scale: inverseHover ? 1 : 1,
+    width: inverseHover ? hoveredSize.width + (hoveredSize.width * 0.5)   : 40,
+    height: inverseHover ? hoveredSize.height - (hoveredSize.height * 0.2)  : 40,
+    borderRadius: inverseHover ? "0%" : "100%",
+    duration: 0.3,
+    ease: "power3.out",
+  });
+}, [inverseHover, hoveredSize]);
 
   return (
     <>
