@@ -5,34 +5,49 @@ export const navbar = [
 ];
 
 export const socialLinks = [
-  { text: "Linkedin", link: "https://www.linkedin.com" },
-  { text: "Github", link: "https://www.github.com" },
+  { text: "Linkedin", link: "https://www.linkedin.com/in/sujith-sappani/" },
+  { text: "Github", link: "https://github.com/Lovedragn" },
 ];
-
-export const skills = [
-  "Python",
-  "Java",
-  "React",
-  "Html",
-  "Css",
-  "Javascript",
-  "Tailwind",
-  "NodeJs",
-  "ExpressJs",
-  "MongoDB",
-  "MySQL",
-  "Nextjs",
-  "Figma",
-  "Git",
-  "GitHub",
-  "Linux",
-  "Docker",
-  "Kubernetes",
-  "AWS",
+export const roles = [
+  "Front-End Developer",
+  "Full-Stack Developer",
+  "UI/UX Designer",
 ];
 
 export const aboutme =
   "I'm a passionate and curious front-end developer with a focus on crafting interactive, user-friendly web experiences. I enjoy building sleek websites using React, Tailwind CSS, and modern animation libraries like GSAP and Three.js. Currently exploring full-stack development and always eager to learn and grow through real-world projects and collaborations.";
+export const skills = [
+  {
+    items: [
+      "Python",
+      "Java",
+      "React",
+      "Html",
+      "Css",
+      "Javascript",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "SpringBoot"
+    ],
+    direction: "left",
+  },
+  {
+    items: [
+      "Tailwind",
+      "NodeJs",
+      "ExpressJs",
+      "MongoDB",
+      "MySQL",
+      "Nextjs",
+      "Figma",
+      "Git",
+      "GitHub",
+      "Linux",
+    ],
+    direction: "right",
+  },
+];
 
 export const works = [
   {

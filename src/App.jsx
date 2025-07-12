@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Hero from "./pages/Hero";
 import Navbar from "./components/Navbar";
 import Curser from "./components/Curser";
+import Aboutme from "./pages/Aboutme";
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
@@ -21,7 +22,7 @@ const App = () => {
         <Navbar />
       </nav>
       <Hero />
-      <div className="w-full h-screen"></div>
+      <Aboutme/>
     </section>
   );
 };

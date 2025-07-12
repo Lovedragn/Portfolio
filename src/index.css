@@ -1,12 +1,10 @@
 @import "tailwindcss";
 
-/* Custom Font: CalSans (Title) */
-@font-face {
-  font-family: "title";
-  src: url("/src/assets/fonts/CalSans-Bold.ttf") format("truetype");
-  font-weight: 800;
-  font-style: normal;
+
+:root{
+  --bg-main-dark : #000000;
 }
+
 
 /* Custom Font: DM Sans (Subtitle) */
 @font-face {
@@ -36,3 +34,4 @@
     @apply flex justify-center items-center;
   }
 }
+
