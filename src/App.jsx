@@ -16,12 +16,12 @@ const App = () => {
   gsap.ticker.lagSmoothing(0);
 
   return (
-    <section className="flex flex-col justify-start items-center bg-black w-full h-auto">
+    <section className="flex flex-col justify-start items-center bg-[var(--bg-dark)] w-full h-auto">
       <Curser/>
-      <nav className="flex-center w-full absolute top-5 py-2">
+      {/* <nav className="flex-center w-full absolute top-5 py-2">
         <Navbar />
-      </nav>
-      <Hero />
+      </nav> */}
+      {/* <Hero /> */}
       <Aboutme/>
     </section>
   );

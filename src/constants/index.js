@@ -9,13 +9,34 @@ export const socialLinks = [
   { text: "Github", link: "https://github.com/Lovedragn" },
 ];
 export const roles = [
-  "Front-End Developer",
-  "Full-Stack Developer",
+  "FrontEnd Developer",
+  "BackEnd Developer",
+  "Full Stack Developer",
   "UI/UX Designer",
 ];
 
 export const aboutme =
   "I'm a passionate and curious front-end developer with a focus on crafting interactive, user-friendly web experiences. I enjoy building sleek websites using React, Tailwind CSS, and modern animation libraries like GSAP and Three.js. Currently exploring full-stack development and always eager to learn and grow through real-world projects and collaborations.";
+
+export const colorMap = {
+  React: "#61dafb",
+  Javascript: "#D0D709",
+  Tailwind: "#38bdf8",
+  Docker: "#38bdf8",
+  Kubernetes: "#060270",
+  MySQL: "#016CB9",
+  Html: "#e34c21",
+  Css: "#264de4",
+  Node: "#",
+  MongoDB: "#4db33d",
+  Python: "#3776ab",
+  Nextjs: "#C0C0C1",
+  SpringBoot: "#3EDC25",
+  Figma: "#a259ff",
+  NodeJs: "#128B00",
+  Git: "#f1502f",
+  Default: "#000000",
+};
 export const skills = [
   {
     items: [
@@ -28,7 +49,7 @@ export const skills = [
       "Docker",
       "Kubernetes",
       "AWS",
-      "SpringBoot"
+      "SpringBoot",
     ],
     direction: "left",
   },

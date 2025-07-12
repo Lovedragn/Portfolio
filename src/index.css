@@ -2,7 +2,8 @@
 
 
 :root{
-  --bg-main-dark : #000000;
+  --bg-main : #eeeeee;
+  --bg-dark : #111111;
 }
 
 
@@ -34,4 +35,3 @@
     @apply flex justify-center items-center;
   }
 }
-

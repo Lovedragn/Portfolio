@@ -2,11 +2,12 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { skills } from "./../constants/index";
 
-// Main component rendering multiple rolls
+// Color mapping for each skill
+
+// Main Rolls container
 const Rolls = () => {
   return (
-     <section className="w-full flex-col gap-6 flex-center overflow-hidden py-8 justify-evenly flex bg-white">
-   
+    <section className="w-full flex flex-col gap-6 overflow-hidden py-8 bg-black">
       {skills.map((item, index) => (
         <Skillroll
           key={index}
@@ -18,8 +19,6 @@ const Rolls = () => {
     </section>
   );
 };
-
-// Each roll
 const Skillroll = ({ id, skills, direction }) => {
   const containerRef = useRef();
 
@@ -27,20 +26,27 @@ const Skillroll = ({ id, skills, direction }) => {
     if (!containerRef.current) return;
 
     const content = containerRef.current;
-    const width = content.offsetWidth / 2; 
+    const width = content.scrollWidth / 3; // Adjust for triple content
+
     const dir = direction === "right" ? 1 : -1;
 
+    // Set initial position
+    gsap.set(content, {
+      x: dir === 1 ? -width : 0,
+    });
+
     const anim = gsap.to(content, {
-      x: dir * width,
-      duration: width/12,
+      x: dir === 1 ? 0 : -width,
+      duration: width / 40, // Adjust speed
       ease: "none",
       repeat: -1,
       modifiers: {
-        x: gsap.utils.unitize((x) =>
-          dir === 1
-            ? parseFloat(x) % width
-            : -(Math.abs(parseFloat(x)) % width)
-        ),
+        x: gsap.utils.unitize((x) => {
+          const val = parseFloat(x);
+          return dir === 1
+            ? (val + width) % width - width
+            : val % width;
+        }),
       },
     });
 
@@ -48,23 +54,25 @@ const Skillroll = ({ id, skills, direction }) => {
   }, [direction]);
 
   return (
-    <section className="flex flex-col gap-4 ">
+    <div className="flex flex-col gap-4">
       <div
         id={id}
         ref={containerRef}
-        className="flex-center whitespace-nowrap  text-3xl font-semibold text-black"
+        className="flex whitespace-nowrap text-3xl font-semibold"
       >
-        {[...skills, ...skills,...skills].map((skill, index) => (
+        {[...skills, ...skills, ...skills].map((skill, index) => (
           <span
             key={index}
-            className="mx-8  transition-colors duration-500 cursor-hover-target"
+            className="mx-2 px-6 py-2 rounded-full border bg-gradient-to-b from-gray-950 to-gray-800 font-extralight transition-colors duration-500"
+            
           >
             {skill}
           </span>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
+
 
 export default Rolls;
