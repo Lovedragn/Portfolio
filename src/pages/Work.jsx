@@ -17,39 +17,48 @@ const Work = () => {
           />
         </div>
         <div className="flex flex-col w-full h-auto pt-30">
-          {works.slice(0, 3).map((item, index) => (
+          {works.slice(0, 4).map((item, index) => (
             <div
               key={index}
               className="grid grid-cols-3 text-2xl items-start gap-4 border-t border-[var(--border-dark)] px-2"
             >
               {/* ID */}
               <h1
-                className="py-6 cursor-hover-inverse-target w-full"
+                className="leading-0 py-6 cursor-hover-inverse-target w-fit "
                 style={{ fontFamily: "paragraph" }}
               >
                 {String(index + 1).padStart(2, "0")}
               </h1>
 
               {/* Text + Title */}
-              <div className="flex flex-col py-6 w-fit h-fit cursor-hover-inverse-target hover:underline">
+              <div className="flex flex-col leading-0  py-6 w-fit h-fit  cursor-hover-inverse-target hover:underline">
                 <Link
-                  to={item.link}
+                  to={item.live}
                   style={{ fontFamily: "paragraph" }}
                   target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black"
                 >
-                  <h1 style={{ fontFamily: "paragraph" }}>{item.title}</h1>
+                  {item.text}
                 </Link>
-                <p style={{ fontFamily: "paragraph" }}>{item.text}</p>
               </div>
 
               {/* Image */}
 
               {item.image && (
-                <img
-                  src={item.image}
-                  alt={item.text}
-                  className="w-44 py-6 object-cover rounded-2xl justify-self-end"
-                />
+                <Link
+                  to={item.live}
+                  style={{ fontFamily: "paragraph" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.text}
+                    className="w-44 py-4 object-cover rounded-2xl justify-self-end cursor-hover-target"
+                  />
+                </Link>
               )}
             </div>
           ))}

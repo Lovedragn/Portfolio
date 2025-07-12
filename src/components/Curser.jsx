@@ -84,8 +84,8 @@ const Cursor = () => {
 
   gsap.to(ringRef.current, {
     scale: inverseHover ? 1 : 1,
-    width: inverseHover ? hoveredSize.width + (hoveredSize.width * 0.5)   : 40,
-    height: inverseHover ? hoveredSize.height - (hoveredSize.height * 0.2)  : 40,
+    width: inverseHover ? hoveredSize.width + (hoveredSize.width * 0.3)   : 40,
+    height: inverseHover ? hoveredSize.height - (hoveredSize.height * 0.3)  : 40,
     borderRadius: inverseHover ? "0%" : "100%",
     duration: 0.3,
     ease: "power3.out",

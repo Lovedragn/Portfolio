@@ -28,7 +28,7 @@ const Aboutme = () => {
                 </div>
 
                 <div className="flex items-center justify-evenly w-full">
-                    <video src="" className="border-1 rounded border-white aspect-[4/5] "/>
+                    {/* <video src="" className="border-1 rounded border-white aspect-[4/5] "/> */}
                     <div
                         className="flex flex-col justify-center items-start w-fit gap-10 text-balance text-normal text-gray-500 "
                         style={{fontFamily: "paragraph"}}
