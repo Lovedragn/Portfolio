@@ -14,8 +14,8 @@ const Aboutme = () => {
     }
     return (
         <section
-            className="flex justify-start items-center flex-col w-full text-white h-auto ">
-            <div className="flex flex-col items-start w-full h-auto p-20  ">
+            className="flex justify-start items-center flex-col w-full text-white h-auto py-20">
+            <div className="flex flex-col items-start w-full h-auto px-10 pb-20">
                 <div className="flex items-end gap-2 pb-15">
                     <h1
                         className="text-white text-4xl font-bold"

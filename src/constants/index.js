@@ -18,25 +18,6 @@ export const roles = [
 export const aboutme =
   "I'm a passionate and curious front-end developer with a focus on crafting interactive, user-friendly web experiences. I enjoy building sleek websites using React, Tailwind CSS, and modern animation libraries like GSAP and Three.js. Currently exploring full-stack development and always eager to learn and grow through real-world projects and collaborations.";
 
-export const colorMap = {
-  React: "#61dafb",
-  Javascript: "#D0D709",
-  Tailwind: "#38bdf8",
-  Docker: "#38bdf8",
-  Kubernetes: "#060270",
-  MySQL: "#016CB9",
-  Html: "#e34c21",
-  Css: "#264de4",
-  Node: "#",
-  MongoDB: "#4db33d",
-  Python: "#3776ab",
-  Nextjs: "#C0C0C1",
-  SpringBoot: "#3EDC25",
-  Figma: "#a259ff",
-  NodeJs: "#128B00",
-  Git: "#f1502f",
-  Default: "#000000",
-};
 export const skills = [
   {
     items: [
@@ -72,28 +53,39 @@ export const skills = [
 
 export const works = [
   {
+    id: "01",
     text: "AI powered CGPA calcy",
     live: "https://ai-cgpa-calculator.vercel.app/",
     link: "https://github.com/Lovedragn/Infotech-website.git",
+    image: "/images/project-1.svg",
   },
   {
-    text: "Infotech, Markating platform",
-    live: "https://techinta.vercel.app/",
-    link: "https://github.com/Lovedragn/Infotech-website.git",
-  },
-  {
+    id: "02",
     text: "Thread Application design",
     live: "https://www.figma.com/design/Pj9zE0i4FITRwEKjBNZO6z/Thread?m=auto&t=K5IvZbxAYt78gFZF-1",
     link: "https://www.figma.com/design/Pj9zE0i4FITRwEKjBNZO6z/Thread?m=auto&t=K5IvZbxAYt78gFZF-1",
+    
+    image: "/images/project-2.svg",
   },
   {
+    id: "03",
+    text: "Infotech, Markating platform",
+    live: "https://techinta.vercel.app/",
+    link: "https://github.com/Lovedragn/Infotech-website.git",
+    image: "/images/project-3.svg",
+  },
+  {
+    id: "04",
     text: "Task Manager design",
     live: "https://www.figma.com/design/Ra30M2uGB2SsdASPfkjyH7/Productivity-Application?m=auto&t=K5IvZbxAYt78gFZF-6",
     link: "https://www.figma.com/design/Ra30M2uGB2SsdASPfkjyH7/Productivity-Application?m=auto&t=K5IvZbxAYt78gFZF-6",
+    image: "/images/project-4.svg",
   },
   {
+    id: "05",
     text: "Code Grinding",
     live: "https://leetcode.com/u/sujithsappani/",
     link: "https://github.com/Lovedragn/LeetCode-Problems/",
+    image: "/images/project-4.svg",
   },
 ];

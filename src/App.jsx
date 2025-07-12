@@ -27,6 +27,8 @@ const App = () => {
             <Hero/>
             <div className="flex-center w-[95dvw] border-1 border-[var(--border-dark)] rounded-full"/>
             <Aboutme/>
+            <div className="flex-center w-[95dvw] border-1 border-[var(--border-dark)] rounded-full"/>
+            <Work/>
         </section>
     );
 };
