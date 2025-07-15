@@ -7,6 +7,7 @@ export const navbar = [
 export const socialLinks = [
   { text: "Linkedin", link: "https://www.linkedin.com/in/sujith-sappani/" },
   { text: "Github", link: "https://github.com/Lovedragn" },
+  { text: "Instagram", link: "https://www.instagram.com/sujiths1352/" },
 ];
 export const roles = [
   "FrontEnd Developer",
@@ -88,3 +89,5 @@ export const works = [
     image: "/images/project-4.jpg",
   },
 ];
+
+export const footer = `@sujith | ${new Date().getFullYear()}`;
