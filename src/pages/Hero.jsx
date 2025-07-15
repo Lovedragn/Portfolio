@@ -1,5 +1,5 @@
 
-import Textroll from "../components/textroll";
+import Textroll from "../components/Textroll.jsx";
 
 const Hero = () => {
   return (
