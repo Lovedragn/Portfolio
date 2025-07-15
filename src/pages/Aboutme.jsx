@@ -33,7 +33,7 @@ const Aboutme = () => {
                         className="flex flex-col justify-center items-start w-fit gap-10 text-balance text-normal text-gray-500 "
                         style={{fontFamily: "paragraph"}}
                     >
-                        <h1 className="flex w-[80dvh]">{aboutme}</h1>
+                        <h1 className="flex w-[80dvw] overflow-hidden">{aboutme}</h1>
                         <button className=" text-black bg-white px-9 py-3 w-fit rounded-2xl text-xl"
                                 onClick={() => download()}>Resume
                         </button>

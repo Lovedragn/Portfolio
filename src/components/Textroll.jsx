@@ -55,7 +55,7 @@ const TextRoll = () => {
   }, [counter]);
 
   return (
-    <div className="flex text-7xl  justify-between items-end h-full w-full pb-20 font-bold text-white  px-20">
+    <div className="flex text-7xl  justify-between items-end h-full w-full pb-20 font-bold text-white  px-20 overflow-hidden">
       <div className="flex-center gap-5">
         <h1 className="text-6xl">{`>`}</h1>
         <div ref={textRef}>{roles[index]}</div>

@@ -1,12 +1,10 @@
 @import "tailwindcss";
 
-
-:root{
-  --bg-main : #eeeeee;
-  --bg-dark : #111111;
-  --border-dark: #666666
+:root {
+  --bg-main: #eeeeee;
+  --bg-dark: #111111;
+  --border-dark: #666666;
 }
-
 
 /* Custom Font: DM Sans (Subtitle) */
 @font-face {
@@ -34,5 +32,9 @@
 @layer utilities {
   .flex-center {
     @apply flex justify-center items-center;
+  }
+
+  .line-chart {
+    @apply flex justify-center items-center w-[95dvw] border border-[var(--border-dark)] rounded-full;
   }
 }
