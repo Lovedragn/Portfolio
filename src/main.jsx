@@ -1,25 +1,47 @@
+import Loadingscreen  from "./components/Loadingscreen.jsx"
+import { useState , useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import Works from "./sections/Works.jsx";
 import Contact from "./sections/Contact.jsx";
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import Layout from './Layout';
-import React from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import Layout from "./Layout";
+
 
 function ModalSwitch() {
   const location = useLocation();
   const state = location.state;
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate data fetching or component mounting
+    const timer = setTimeout(() => setIsLoading(false), 2000); // 2 seconds
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
     <>
-      <Routes location={state?.backgroundLocation || location}>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<App />} />
-          <Route path="works" element={<Works />} />
-        </Route>
-      </Routes>
-      {location.pathname === "/contact" && <ContactModal onClose={() => navigate(-1)} />}
+      {isLoading ? (
+        <Loadingscreen/>
+      ) : (
+        <Routes location={state?.backgroundLocation || location}>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<App />} />
+            <Route path="works" element={<Works />} />
+          </Route>
+        </Routes>
+      )}
+      {location.pathname === "/contact" && (
+        <ContactModal onClose={() => navigate(-1)} />
+      )}
     </>
   );
 }
