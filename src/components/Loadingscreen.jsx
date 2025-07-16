@@ -3,9 +3,10 @@ import { useGSAP } from "@gsap/react";
 import { useEffect } from "react";
 
 const Loadingscreen = () => {
+  let currentvalue = 0;
   useEffect(() => {
     let counterElement = document.querySelector(".counter");
-    let currentvalue = 0;
+
     const count = () => {
       if (!counterElement) return;
       if (currentvalue >= 100) {
@@ -24,35 +25,47 @@ const Loadingscreen = () => {
 
   useGSAP(() => {
     gsap.to("#counter", {
-      delay: 3.5,
-      opacity: 0,
+     delay:3.5,
+     opacity:0,
+    
     });
     gsap.to("#bar", {
-      delay: 3.5,
+      delay: 4,
       height: 0,
       stagger: { amount: 0.5 },
       ease: "power4.in",
     });
-    gsap.from("#counter", {
-      delay: 4,
-      y: 700,
-      stagger: {
-        amount: 0.5,
-      },
-      ease: "power4.inOut",
-    });
+
+    gsap.to("#overlay", {
+    delay: 6,
+    opacity: 0,
+    pointerEvents: "none", // optional CSS change
+    onComplete: () => {
+      // Hide overlay completely
+      const overlay = document.getElementById("overlay");
+      if (overlay) {
+        overlay.style.display = "none";
+      }
+    },
+  });
   });
 
   return (
-    <div id={"overlay"} className="overlay bg-white/10 h-screen fixed w-[100vw] z-10 flex-center">
-      <h1 id={"counter"} className="counter fixed w-full h-full flex justify-end items-end z-20 text-red-600 text-3xl font-black">
+    <div
+      id={"overlay"}
+      className="overlay h-screen fixed w-[100vw] z-9999 flex overflow-hidden"
+    > 
+      <h1
+        id={"counter"}
+        className="counter fixed w-full h-full flex justify-end items-end z-20 text-black text-9xl font-black"
+      >
         00
       </h1>
-      <div id={"bar"}  className="bar w-[20vw] h-[105vh] bg-white/30" />
-      <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-white/30" />
-      <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-white/30" />
-      <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-white/30" />
-      <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-white/30" />
+      <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-[var(--bg-main)]" />
+      <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-[var(--bg-main)]" />
+      <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-[var(--bg-main)]" />
+      <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-[var(--bg-main)]" />
+      <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-[var(--bg-main)]" />
     </div>
   );
 };
