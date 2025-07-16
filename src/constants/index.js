@@ -102,3 +102,5 @@ export const works = [
 
 
 export const footer = `@sujith | ${new Date().getFullYear()}`;
+
+export const details = {name : "Sujith Sappani" , location : "Alandur, Chennai" , email : "Sujith.sappani@gmail.com"}; 

@@ -10,6 +10,7 @@ import React from "react";
 function ModalSwitch() {
   const location = useLocation();
   const state = location.state;
+  const navigate = useNavigate();
   return (
     <>
       <Routes location={state?.backgroundLocation || location}>
@@ -18,17 +19,15 @@ function ModalSwitch() {
           <Route path="works" element={<Works />} />
         </Route>
       </Routes>
-      {location.pathname === "/contact" && <ContactModal />}
+      {location.pathname === "/contact" && <ContactModal onClose={() => navigate(-1)} />}
     </>
   );
 }
 
-function ContactModal() {
-  const navigate = useNavigate();
+function ContactModal({ onClose }) {
   return (
     <div className="modal-overlay">
-      <button className="absolute top-4 right-4 z-50 bg-white text-black px-4 py-2 rounded" onClick={() => navigate(-1)}>Close</button>
-      <Contact />
+      <Contact onClose={onClose} />
     </div>
   );
 }
