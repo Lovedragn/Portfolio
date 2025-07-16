@@ -8,7 +8,7 @@ const App = () => {
 
 
   return (
-    <section className="flex flex-col justify-start items-center bg-[var(--bg-dark)] w-full h-auto">
+    <section className="flex flex-col justify-start items-center bg-[var(--bg-dark)] w-full">
       <Hero />
       <div className="line-chart" />
       <Aboutme /> 

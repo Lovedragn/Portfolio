@@ -33,7 +33,7 @@ const Loadingscreen = () => {
       delay: 4,
       height: 0,
       stagger: { amount: 0.5 },
-      ease: "power4.in",
+      ease: "power1.inOut",
     });
 
     gsap.to("#overlay", {

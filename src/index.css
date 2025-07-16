@@ -49,3 +49,6 @@
   justify-content: center;
   z-index: 999;
 }
+.underline-bar {
+  transform-origin: left;
+}

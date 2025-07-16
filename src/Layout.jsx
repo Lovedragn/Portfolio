@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./pages/Footer.jsx";
 import { Outlet } from "react-router-dom";
@@ -8,7 +7,7 @@ import Loadingscreen from "./components/Loadingscreen.jsx";
 const Layout = () => {
   return (
     <>
-     <Loadingscreen/>
+      <Loadingscreen />
       <Cursor />
       <ScrollToTop />
       <Navbar />

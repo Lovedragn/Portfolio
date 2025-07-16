@@ -13,6 +13,16 @@ const TextRoll = () => {
   const [counter, setCounter] = useState(2005);
 
   useEffect(() => {
+    gsap.from("#counter-container", {
+      yPercent: 80,
+      ease: "power1.out",
+      delay: 4.2,
+    });
+    gsap.from("#text-container", {
+      xPercent: -40,
+      ease: "power1.out",
+      delay: 4.2,
+    });
     const interval = setInterval(() => {
       // Animate out text
       gsap.to(textRef.current, {
@@ -56,11 +66,14 @@ const TextRoll = () => {
 
   return (
     <div className="flex text-7xl  justify-between items-end h-full w-full pb-20 font-bold text-white  px-20 overflow-hidden">
-      <div className="flex-center gap-5">
+      <div id={"text-container"} className="flex-center gap-5">
         <h1 className="text-6xl">{`>`}</h1>
         <div ref={textRef}>{roles[index]}</div>
       </div>
-      <div className="flex text-2xl border-4 border-white p-2 px-4 rounded-tl-4xl rounded-br-4xl">
+      <div
+        id={"counter-container"}
+        className="flex text-2xl border-4 border-white p-2 px-4 rounded-tl-4xl rounded-br-4xl"
+      >
         @
         <h1 className="text-5xl" ref={countRef}>
           {counter}
