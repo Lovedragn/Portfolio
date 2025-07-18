@@ -19,7 +19,7 @@ const Works = () => {
   return (
     <section className="flex justify-start rounded-t-2xl items-center flex-col w-full  bg-[var(--bg-main)] text-black h-auto ">
       <div className="revealer"></div>
-      <div className="flex justify-start items-end pb-15 bg-black w-full px-20 text-white h-[60dvh] rounded-b-3xl">
+      <div className="flex justify-start items-end pb-15 bg-black w-full px-20 text-white h-[60dvh] rounded-b-3xl cursor-hover-target">
         <h1
           className="inline-flex text-[6dvw] font-bold leading-tight"
           style={{ fontFamily: "subtitle" }}
@@ -37,10 +37,10 @@ const Works = () => {
             >
               {/* ID */}
               <h1
-                className=" py-6 cursor-hover-inverse-target w-fit "
+                className=" py-6 cursor-hover-inverse-target w-fit text-inverse-hover"
                 style={{ fontFamily: "subtitle" }}
               >
-                {String(index + 1).padStart(2, "0")}
+                {item.id}
               </h1>
 
               {/* Text + Title */}
@@ -50,7 +50,7 @@ const Works = () => {
                   style={{ fontFamily: "subtitle" }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black  hover:underline w-fit cursor-hover-inverse-target font-bold"
+                  className="text-inverse-hover text-red-600 w-fit cursor-hover-inverse-target font-bold"
                 >
                   {item.text}
                 </Link>

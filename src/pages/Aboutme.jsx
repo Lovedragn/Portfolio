@@ -49,6 +49,7 @@ const Aboutme = () => {
           duration: 2,
           ease: "power3.out",
           stagger: 0.02,
+          
         });
       },
     });
@@ -110,7 +111,7 @@ tl.fromTo(
         <div className="flex items-end gap-2 pb-15">
           <h1
             ref={titleRef}
-            className="text-white text-4xl font-bold overflow-hidden"
+            className="text-white text-4xl font-bold overflow-hidden text-hover"
             style={{ fontFamily: "subtitle" }}
           >
             About me
@@ -125,6 +126,7 @@ tl.fromTo(
               src="/student1.mp4"
               className="rounded-xl border-white w-[40dvh] max-w-[300px]"
               preload="false"
+              muted
             />
 
             <div
@@ -133,7 +135,7 @@ tl.fromTo(
             >
               <h1
                 ref={aboutRef}
-                className="text-xl md:text-2xl leading-snug text-balance max-w-xl"
+                className="text-xl md:text-2xl leading-snug text-balance max-w-xl text-hover"
               >
                 {aboutme}
               </h1>

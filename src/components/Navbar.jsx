@@ -13,7 +13,7 @@ const Navbar = () => {
     gsap.from("#logo", {
       rotate: 360,
       scale: 0.6,
-      delay: 5.5,
+      delay: 6,
       duration: 2,
       ease: "power1.inOut",
     });
@@ -21,12 +21,12 @@ const Navbar = () => {
       "#navlink",
       {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        
+     
       },
       {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-color:"black",
-        delay: 4.5,
+         color: "gray",
+        delay: 5.5,
         ease: "power2.in",
       }
     );
@@ -45,6 +45,7 @@ color:"black",
       el.addEventListener("mouseenter", () => {
         gsap.set(underline, { transformOrigin: "left" });
         gsap.to(underline, {
+          scaleY:0.5,
           scaleX: 1,
           duration: 0.3,
           ease: "power2.inOut",
@@ -56,7 +57,7 @@ color:"black",
         gsap.to(underline, {
           scaleX: 0,
           duration: 0.2,
-          backgroundColor:"black",
+          backgroundColor: "grey",
           ease: "power2.inOut",
         });
       });
@@ -64,7 +65,7 @@ color:"black",
   }, []);
 
   return (
-    <nav className="flex-center w-full absolute top-5 py-2 px-20 text-[1rem] text-white z-[9999]">
+    <nav className="flex-center w-full absolute top-5 py-2 px-20 text-[1rem]  z-[9999]">
       <ul className="flex justify-between w-full">
         {navbar.map((item, index) => (
           <li
@@ -81,7 +82,7 @@ color:"black",
               <button
                 id={"navlink"}
                 style={{ fontFamily: "paragraph" }}
-                className="mix-blend-difference bg-transparent border-none outline-none cursor-pointer relative"
+                className="mix-blend-difference bg-transparent border-none outline-none cursor-pointer  relative"
                 onClick={() =>
                   navigate("/contact", {
                     state: { backgroundLocation: location },
