@@ -18,6 +18,7 @@ const LinkButton = ({ item }) => {
 const Works = () => {
   return (
     <section className="flex justify-start rounded-t-2xl items-center flex-col w-full  bg-[var(--bg-main)] text-black h-auto ">
+      <div className="revealer"></div>
       <div className="flex justify-start items-end pb-15 bg-black w-full px-20 text-white h-[60dvh] rounded-b-3xl">
         <h1
           className="inline-flex text-[6dvw] font-bold leading-tight"

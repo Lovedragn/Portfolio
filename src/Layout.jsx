@@ -7,10 +7,10 @@ import Loadingscreen from "./components/Loadingscreen.jsx";
 const Layout = () => {
   return (
     <>
-      <Loadingscreen />
+      <Navbar />
+      {/* <Loadingscreen /> */}
       <Cursor />
       <ScrollToTop />
-      <Navbar />
       <Outlet />
       <Footer />
     </>

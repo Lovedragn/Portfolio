@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Work = () => {
   return (
     <section className="flex justify-start rounded-t-2xl items-center flex-col w-full bg-[var(--bg-main)] text-black h-auto p-20">
+      <div className="revealer"></div>
       <div className="flex  items-start w-full h-auto gap-20 ">
         <div className="flex items-end gap-2 pb-15">
           <h1 className="text-4xl font-bold" style={{ fontFamily: "subtitle" }}>

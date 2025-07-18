@@ -53,7 +53,7 @@ const Loadingscreen = () => {
   return (
     <div
       id={"overlay"}
-      className="overlay h-screen fixed w-[100vw] z-9999 flex overflow-hidden"
+      className="overlay h-screen fixed w-[100vw] z-9999 flex overflow-hidden "
     > 
       <h1
         id={"counter"}
@@ -61,7 +61,7 @@ const Loadingscreen = () => {
       >
         00
       </h1>
-      <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-[var(--bg-main)]" />
+      <div id={"bar"} className="bar w-[20dvw] h-[105vh] bg-[var(--bg-main)]" />
       <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-[var(--bg-main)]" />
       <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-[var(--bg-main)]" />
       <div id={"bar"} className="bar w-[20vw] h-[105vh] bg-[var(--bg-main)]" />

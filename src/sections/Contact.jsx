@@ -40,6 +40,7 @@ const Contact = ({ onClose }) => {
 
   return (
     <section className="fixed inset-0 z-[9999] bg-black/10 backdrop-blur-lg overflow-y-auto">
+      
       <div className="flex items-start justify-center min-h-screen py-[30vh] px-4">
         <div className="relative bg-white w-full max-w-[720px] shadow-4xl aspect-[3/3] flex flex-col justify-start p-3 rounded-sm">
           <div className="flex justify-between items-center border-b pb-20 mb-8">

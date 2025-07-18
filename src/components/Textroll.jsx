@@ -4,7 +4,7 @@ import { CustomEase } from "gsap/CustomEase";
 import { roles } from "../constants"; // your array
 
 gsap.registerPlugin(CustomEase);
-CustomEase.create("textcount", "M0,0 C0.25,0.1 0.25,1 1,1"); // similar to easeInOut
+CustomEase.create("hop", "0,0 C0.767,0 0.1,1 1,1 ");
 
 const TextRoll = () => {
   const textRef = useRef();
@@ -14,15 +14,32 @@ const TextRoll = () => {
 
   useEffect(() => {
     gsap.from("#counter-container", {
-      yPercent: 80,
-      ease: "power1.out",
-      delay: 4.2,
+      yPercent: 150,
+      ease: "hop",
+      
+    },{ 
+      yPercent: 0,
+      ease: "hop",
+      delay: 5.7,
     });
-    gsap.from("#text-container", {
-      xPercent: -40,
-      ease: "power1.out",
-      delay: 4.2,
-    });
+    gsap.fromTo(
+      "#text-container",
+      {
+        ease: "hop",
+      },
+      {
+        overflow: "hidden",
+        delay: 6.2,
+        ease: "power1.out",
+      }
+    );
+    gsap.fromTo(
+      textRef.current,
+      {
+        yPercent: 150,
+      },
+      { delay: 6, yPercent: 0 }
+    );
     const interval = setInterval(() => {
       // Animate out text
       gsap.to(textRef.current, {

@@ -96,12 +96,12 @@ const Cursor = () => {
     <>
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full mix-blend-difference z-[9999] pointer-events-none"
+        className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full mix-blend-difference z-[9990] pointer-events-none"
         style={{ transform: "translate(-50%, -50%)" }}
       />
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-10 h-10 border-1 border-white rounded-full mix-blend-difference z-[9998] pointer-events-none"
+        className="fixed top-0 left-0 w-10 h-10 border-1 border-white rounded-full mix-blend-difference z-[9989] pointer-events-none"
         style={{ transform: "translate(-50%, -50%)" }}
       />
     </>
