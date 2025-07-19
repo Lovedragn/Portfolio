@@ -11,20 +11,20 @@ CustomEase.create("hop", "0,0 C0.767,0 0.1,1 1,1 ");
 
 // Array of sliced SVGs in correct visual order
 const slices = [
-  "/public/images/hero-name/Slice-1.svg",
-  "/public/images/hero-name/Slice-2.svg",
-  "/public/images/hero-name/Slice-3.svg",
-  "/public/images/hero-name/Slice-4.svg",
-  "/public/images/hero-name/Slice-5.svg",
-  "/public/images/hero-name/Slice-6.svg",
+  "/images/hero-name/Slice-1.svg",
+  "/images/hero-name/Slice-2.svg",
+  "/images/hero-name/Slice-3.svg",
+  "/images/hero-name/Slice-4.svg",
+  "/images/hero-name/Slice-5.svg",
+  "/images/hero-name/Slice-6.svg",
 ];
 
 const Hero = () => {
   const containerRef = useRef();
-  const location = useLocation();
-  useGSAP(()=>{
-    gsap.to("",{})
-  },[location])
+  // const location = useLocation();
+  // useGSAP(()=>{
+  //   gsap.to("",{})
+  // },[location])
   useGSAP(
     () => {
       gsap.from(".hero-slice", {
@@ -57,10 +57,10 @@ const Hero = () => {
     );
   });
 
-  Reveler();
+  // Reveler();
   return (
     <>
-    <div className="revealer"></div>
+    {/* <div className="revealer"></div> */}
     <section className="section w-full flex items-between flex-col h-[110dvh]">
       <div
         ref={containerRef}
