@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import AnimatedLink from "./AnimatedLink.jsx";
 
 const Navbar = () => {
   const location = useLocation();
@@ -11,27 +10,31 @@ const Navbar = () => {
   const linkRefs = useRef([]);
 
   useGSAP(() => {
-    gsap.from("#logo", {
-      rotate: 360,
-      scale: 0.6,
-      delay: 5.5,
-      duration: 2,
-      ease: "power1.inOut",
-    });
-    gsap.fromTo(
-      "#navlink",
-      {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        
-      },
-      {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-color:"black",
-        delay: 4.5,
-        ease: "power2.in",
-      }
-    );
-
+    const logo = document.querySelector("#logo");
+    if (logo) {
+      gsap.from(logo, {
+        rotate: 360,
+        scale: 0.6,
+        delay: 6,
+        duration: 2,
+        ease: "power1.inOut",
+      });
+    }
+    const navlinks = document.querySelectorAll("#navlink");
+    if (navlinks.length > 0) {
+      gsap.fromTo(
+        navlinks,
+        {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        },
+        {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          color: "gray",
+          delay: 5.5,
+          ease: "power2.in",
+        }
+      );
+    }
     linkRefs.current.forEach((el) => {
       if (!el) return;
       const underline = el.querySelector(".underline-bar");
@@ -43,6 +46,7 @@ color:"black",
       el.addEventListener("mouseenter", () => {
         gsap.set(underline, { transformOrigin: "left" });
         gsap.to(underline, {
+          scaleY: 0.5,
           scaleX: 1,
           duration: 0.3,
           ease: "power2.inOut",
@@ -53,7 +57,7 @@ color:"black",
         gsap.to(underline, {
           scaleX: 0,
           duration: 0.2,
-          backgroundColor:"black",
+          backgroundColor: "grey",
           ease: "power2.inOut",
         });
       });
@@ -61,7 +65,7 @@ color:"black",
   }, []);
 
   return (
-    <nav className="flex-center w-full absolute top-5 py-2 px-20 text-[1rem] text-white z-[9999]">
+    <nav className="flex-center w-full absolute top-5 py-2 px-20 text-[1rem]  z-[1000]">
       <ul className="flex justify-between w-full">
         {navbar.map((item, index) => (
           <li
@@ -71,9 +75,9 @@ color:"black",
             ref={(el) => (linkRefs.current[index] = el)}
           >
             {item.text === "Home" ? (
-              <AnimatedLink to={item.link}>
+              <Link to={item.link}>
                 <img id="logo" src="logo.svg" width={30} />
-              </AnimatedLink>
+              </Link>
             ) : item.text === "Contact" ? (
               <button
                 id={"navlink"}
@@ -89,7 +93,7 @@ color:"black",
                 <div className="underline-bar absolute bottom-0 left-0 h-[2px] w-full bg-white origin-left scale-x-0" />
               </button>
             ) : (
-              <AnimatedLink
+              <Link
                 id={"navlink"}
                 to={item.link}
                 style={{ fontFamily: "paragraph" }}
@@ -97,7 +101,7 @@ color:"black",
               >
                 {item.text}
                 <div className="underline-bar absolute bottom-0 left-0 h-[2px] w-full bg-white origin-left scale-x-0" />
-              </AnimatedLink>
+              </Link>
             )}
           </li>
         ))}
@@ -108,7 +112,7 @@ color:"black",
               className="cursor-hover-inverse-target relative overflow-hidden"
               ref={(el) => (linkRefs.current[index + navbar.length] = el)}
             >
-              <AnimatedLink
+              <Link
                 id={"navlink"}
                 to={item.link}
                 style={{ fontFamily: "paragraph" }}
@@ -116,7 +120,7 @@ color:"black",
               >
                 {item.text}
                 <div className="underline-bar absolute bottom-0 left-0 h-[2px] w-full bg-white origin-left scale-x-0" />
-              </AnimatedLink>
+              </Link>
             </li>
           ))}
         </ul>

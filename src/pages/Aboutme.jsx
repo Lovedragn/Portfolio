@@ -13,109 +13,81 @@ const Aboutme = () => {
   const aboutRef = useRef();
   const titleRef = useRef();
   const videoRef = useRef();
+  const resumeRef = useRef();
 
   useGSAP(() => {
     document.fonts.ready.then(() => {
       // Split and mask title
-      SplitText.create(titleRef.current, {
-        type: "chars",
-        mask: "lines",
-        onSplit(self) {
-          gsap.from(self.chars, {
-            scrollTrigger: {
-              trigger: titleRef.current,
-              start: "top 90%",
-            },
-            y: 100,
-            autoAlpha: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.03,
-          });
-        },
-      });
-
-<<<<<<< HEAD
-      // Split and mask paragraph
-      SplitText.create(aboutRef.current, {
-        type: "lines, words",
-        mask: "lines",
-        onSplit(self) {
-          gsap.from(self.words, {
-            scrollTrigger: {
-              trigger: aboutRef.current,
-              start: "top 90%",
-            },
-            y: 100,
-            autoAlpha: 0,
-            duration: 2,
-            ease: "power3.out",
-            stagger: 0.03,
-          });
-        },
-      });
-=======
-    // Split and mask paragraph
-    SplitText.create(aboutRef.current, {
-      type: "lines, words",
-      mask: "lines",
-      onSplit(self) {
-        gsap.from(self.words, {
-          scrollTrigger: {
-            trigger: aboutRef.current,
-            start: "top 90%",
+      if (titleRef.current) {
+        SplitText.create(titleRef.current, {
+          type: "chars",
+          mask: "lines",
+          onSplit(self) {
+            if (self.chars && self.chars.length > 0) {
+              gsap.from(self.chars, {
+                scrollTrigger: {
+                  trigger: titleRef.current,
+                  start: "top 90%",
+                },
+                y: 100,
+                autoAlpha: 0,
+                duration: 0.5,
+                ease: "power3.out",
+                stagger: 0.03,
+              });
+            }
           },
-          y: 100,
-          autoAlpha: 0,
-          duration: 2,
-          ease: "power3.out",
-          stagger: 0.02,
         });
-      },
->>>>>>> parent of af2b244 (batch 2 gsap)
-    });
-
-  
-    const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: videoRef.current,
-    start: "top 30%",
-    once: true,
-    onEnter: () => {
-      videoRef.current.play();
-    },
-  },
-});
-
-tl.fromTo(
-  videoRef.current,
-  {
-    clipPath: "polygon(17.55% 94.18%, 61.03% 56.46%, 100% 0%, 27.26% 19.5%)",
-  },
-  {
-    duration: 2,
-    ease: "power3.out",
-    clipPath: "polygon(21.87% 100%, 92.35% 80.66%, 99.86% 26.42%, 0% 0%)",
-  }
-);
-
-
-    gsap.fromTo(
-      "#resume",
-      {
-        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-      },
-      {
-        clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: "#resume", // 💡 Set trigger element
-          start: "top 70%", // adjust as needed
-        },
       }
-    );
+
+      // Split and mask paragraph
+      if (aboutRef.current) {
+        SplitText.create(aboutRef.current, {
+          type: "lines, words",
+          mask: "lines",
+          onSplit(self) {
+            if (self.words && self.words.length > 0) {
+              gsap.from(self.words, {
+                scrollTrigger: {
+                  trigger: aboutRef.current,
+                  start: "top 90%",
+                },
+                y: 100,
+                autoAlpha: 0,
+                duration: 2,
+                ease: "power3.out",
+                stagger: 0.03,
+              });
+            }
+          },
+        });
+      }
+
+      // Animate resume if it exists
+      if (resumeRef.current) {
+        gsap.fromTo(
+          resumeRef.current,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: resumeRef.current,
+              start: "top 90%",
+            },
+          }
+        );
+      }
+    });
   }, []);
+
+  // Example: play video only if it exists
+  const handlePlayVideo = () => {
+    if (videoRef.current && typeof videoRef.current.play === "function") {
+      videoRef.current.play();
+    }
+  };
 
   const download = () => {
     const link = document.createElement("a");
@@ -146,7 +118,8 @@ tl.fromTo(
               ref={videoRef}
               src="/student1.mp4"
               className="rounded-xl border-white w-[40dvh] max-w-[300px]"
-              preload="false"
+              muted 
+              preload="true"
             />
 
             <div
@@ -155,12 +128,13 @@ tl.fromTo(
             >
               <h1
                 ref={aboutRef}
-                className="text-xl md:text-2xl leading-snug text-balance max-w-xl"
+                className="text-xl md:text-2xl leading-snug text-balance max-w-xl hover:text-white hover:underline"
               >
                 {aboutme}
               </h1>
 
               <button
+                ref={resumeRef}
                 id={"resume"}
                 className="text-black bg-white px-8 py-3 rounded-2xl text-lg shadow-md hover:bg-gray-100 transition"
                 onClick={download}

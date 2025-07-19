@@ -21,7 +21,7 @@ const Work = () => {
           {works.slice(0, 4).map((item, index) => (
             <div
               key={index}
-              className="grid grid-cols-3 text-2xl items-start gap-4 border-t border-[var(--border-dark)] px-2"
+              className="grid grid-cols-3 text-2xl items-start gap-4 border-t border-[var(--border-dark)] px-2 text-hover"
             >
               {/* ID */}
               <h1
@@ -38,7 +38,7 @@ const Work = () => {
                   style={{ fontFamily: "paragraph" }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black"
+                
                 >
                   {item.text}
                 </Link>

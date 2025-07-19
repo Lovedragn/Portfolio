@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import close from "/close.svg";
 import emailjs from "emailjs-com";
+import gsap from "gsap";
+
 
 const SERVICE_ID = "service_fsqwp14";
 const TEMPLATE_ID = "template_slvufhm";
@@ -10,12 +12,23 @@ const Contact = ({ onClose }) => {
   const formRef = useRef();
   const [isSending, setIsSending] = useState(false);
   const [sent, setSent] = useState(false);
-
+  const backdropRef = useRef()
+  const containerRef = useRef()
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    gsap.to(
+      backdropRef.current,
+      {  backgroundColor:"rgba(0,0,0 ,0.1)", duration: 2, ease: "power1.inOut" }
+    );
+    gsap.fromTo(
+      containerRef.current,
+      { y: "100vh" },
+      { y: 0, duration: 1.5, ease: "power3.out" , opacity:1 }
+    );
     return () => {
       document.body.style.overflow = "";
     };
+
   }, []);
 
   const handleSubmit = (e) => {
@@ -37,13 +50,17 @@ const Contact = ({ onClose }) => {
         }
       );
   };
-
   return (
-    <section className="fixed inset-0 z-[9999] bg-black/10 backdrop-blur-lg overflow-y-auto">
-      
-      <div className="flex items-start justify-center min-h-screen py-[30vh] px-4">
-        <div className="relative bg-white w-full max-w-[720px] shadow-4xl aspect-[3/3] flex flex-col justify-start p-3 rounded-sm">
->>>>>>> parent of af2b244 (batch 2 gsap)
+    <section
+      ref={backdropRef}
+      className="fixed  inset-0 z-[9999] py-[60dvh] overflow-x-hidden"
+
+    >
+      <div
+        ref={containerRef}
+        className="flex items-start justify-center min-h-screen  px-4"
+      >
+        <div className="relative bg-white w-full max-w-[720px]  aspect-[3/3] flex flex-col justify-start p-3 rounded-sm">
           <div className="flex justify-between items-center border-b pb-20 mb-8">
             <h1 className="text-5xl font-extrabold" style={{ fontFamily: "subtitle" }}>
               Let's Talk

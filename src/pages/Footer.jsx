@@ -17,15 +17,16 @@ const Footer = () => {
             <div className="bg-black h-full w-[2px]" />
             <ul className="flex flex-col items-start ">
               {navbar.map((item, index) => (
-                <li
-                  key={index}
-                  className="cursor-hover-inverse-target"
-                >
+                <li key={index} className="cursor-hover-inverse-target text-hover">
                   {item.text === "Contact" ? (
                     <button
                       style={{ fontFamily: "subtitle" }}
-                      className="bg-transparent border-none outline-none cursor-pointer"
-                      onClick={() => navigate("/contact", { state: { backgroundLocation: location } })}
+                      className="bg-transparent border-none cursor-pointer text-hover"
+                      onClick={() =>
+                        navigate("/contact", {
+                          state: { backgroundLocation: location },
+                        })
+                      }
                     >
                       {item.text}
                     </button>
@@ -43,7 +44,7 @@ const Footer = () => {
 
             <ul className="flex flex-col items-start justify-start ">
               {socialLinks.map((item, index) => (
-                <li key={index} className="cursor-hover-inverse-target">
+                <li key={index} className="cursor-hover-inverse-target text-hover">
                   <Link to={item.link} style={{ fontFamily: "subtitle" }}>
                     {item.text}
                   </Link>
@@ -54,7 +55,7 @@ const Footer = () => {
         </div>
       </ul>
 
-      <ul className="text-[1rem] font-thin" style={{ fontFamily: "paragraph" }}>
+      <ul className="text-[1rem] font-thin text-inverse-hover" style={{ fontFamily: "paragraph" }}>
         {footer}
       </ul>
     </nav>

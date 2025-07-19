@@ -33,14 +33,14 @@ const Works = () => {
           {works.map((item, index) => (
             <div
               key={index}
-              className="grid grid-cols-3 text-2xl items-start gap-4 border-t border-[var(--border-dark)] px-2"
+              className="grid grid-cols-3 text-2xl items-start gap-4 border-t border-[var(--border-dark)] px-2 "
             >
               {/* ID */}
               <h1
-                className=" py-6 cursor-hover-inverse-target w-fit "
+                className=" py-6 cursor-hover-inverse-target w-fit text-hover"
                 style={{ fontFamily: "subtitle" }}
               >
-                {String(index + 1).padStart(2, "0")}
+                {item.id}
               </h1>
 
               {/* Text + Title */}
@@ -50,12 +50,12 @@ const Works = () => {
                   style={{ fontFamily: "subtitle" }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black  hover:underline w-fit cursor-hover-inverse-target font-bold"
+                  className=" w-fit cursor-hover-inverse-target font-bold text-inverse-hover"
                 >
                   {item.text}
                 </Link>
 
-                <p className="text-base font-light text-balance text-[var(--bg-border-dark)]">
+                <p className="text-base font-light text-balance no-underline text-black/50">
                   {item.description}
                 </p>
                 <LinkButton item={item} />
