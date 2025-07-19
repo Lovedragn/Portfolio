@@ -63,6 +63,34 @@ const Aboutme = () => {
         });
       }
 
+      // Animate video clip-path and play video on enter
+      if (videoRef.current) {
+        gsap.fromTo(
+          videoRef.current,
+          {
+            clipPath: "polygon(19% 17%, 100% 0, 52% 45%, 27% 94%)",
+          },
+          {
+            clipPath: "polygon(0% 0%, 81% 18%, 90% 91%, 28% 72%)",
+            duration: 2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: videoRef.current,
+              start: "top 50%",
+              onEnter: () => {
+                if (
+                  videoRef.current &&
+                  typeof videoRef.current.play === "function"
+                ) {
+                  videoRef.current.play();
+                }
+              },
+              once: true,
+            },
+          }
+        );
+      }
+
       // Animate resume if it exists
       if (resumeRef.current) {
         gsap.fromTo(
@@ -81,13 +109,6 @@ const Aboutme = () => {
       }
     });
   }, []);
-
-  // Example: play video only if it exists
-  const handlePlayVideo = () => {
-    if (videoRef.current && typeof videoRef.current.play === "function") {
-      videoRef.current.play();
-    }
-  };
 
   const download = () => {
     const link = document.createElement("a");
@@ -118,8 +139,7 @@ const Aboutme = () => {
               ref={videoRef}
               src="/student1.mp4"
               className="rounded-xl border-white w-[40dvh] max-w-[300px]"
-              muted 
-              preload="true"
+              muted
             />
 
             <div
