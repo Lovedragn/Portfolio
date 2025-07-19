@@ -62,7 +62,7 @@ const Cursor = () => {
   // Effect 1: hover scaling
   useEffect(() => {
     gsap.to(dotRef.current, {
-      scale: hover ? 6 : 1,
+      scale: hover ? 8 : 1,
       duration: 0.5,
       ease: "power3.out",
     });
