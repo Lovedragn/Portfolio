@@ -12,7 +12,7 @@ const Footer = () => {
             <img src="logo.svg" width={60} />
           </Link>
         </div>
-        <div className="flex w-full h-full gap-40">
+        <div className="flex w-full h-full gap-40 max-md:gap-10">
           <div className="flex gap-2">
             <div className="bg-black h-full w-[2px]" />
             <ul className="flex flex-col items-start ">

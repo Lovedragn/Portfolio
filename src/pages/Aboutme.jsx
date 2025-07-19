@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText"; // ✅ new syntax
+import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -120,9 +120,9 @@ const Aboutme = () => {
   };
 
   return (
-    <section className="flex justify-start items-center flex-col w-full text-white h-auto py-20">
-      <div className="flex flex-col items-start w-full h-auto px-10 pb-20">
-        <div className="flex items-end gap-2 pb-15">
+    <section className="flex justify-start items-center flex-col w-full text-white h-auto py-20 max-md:py-10">
+      <div className="flex flex-col max-md:gap-5 items-start w-full h-auto px-10 pb-20 max-md:pb-10 max-md:px-5">
+        <div className="flex items-end gap-2 pb-15 ">
           <h1
             ref={titleRef}
             className="text-white text-4xl font-bold overflow-hidden"
@@ -133,22 +133,22 @@ const Aboutme = () => {
           <img src="/images/down-arrow.svg" alt="arrow" className="w-6" />
         </div>
 
-        <div className="flex items-center justify-center w-full px-6 py-10">
-          <div className="flex items-center justify-center gap-10 max-w-7xl w-full">
+        <div className="flex  items-center justify-center w-full px-6 py-10 max-md:py-0">
+          <div className="flex  max-md:flex-col max-md:gap-0 items-center justify-center gap-10 max-w-7xl w-full">
             <video
               ref={videoRef}
               src="/student1.mp4"
-              className="rounded-xl border-white w-[40dvh] max-w-[300px]"
+              className="rounded-xl border-white w-[40dvh] max-w-[300px] max-md:w-[200px]"
               muted
             />
 
             <div
-              className="flex flex-col justify-center items-start gap-6 text-gray-600"
+              className="flex  flex-col justify-center items-start gap-6 text-gray-600 max-md:gap-10 max-md:items-center"
               style={{ fontFamily: "paragraph" }}
             >
               <h1
                 ref={aboutRef}
-                className="text-xl md:text-2xl leading-snug text-balance max-w-xl hover:text-white hover:underline"
+                className="text-xl max-md:text-lg max-md:leading-snug  hover:text-white hover:underline"
               >
                 {aboutme}
               </h1>
