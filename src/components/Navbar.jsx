@@ -63,7 +63,7 @@ const Navbar = () => {
       });
     });
   }, []);
-  
+
   return (
     <nav className="flex-center w-full absolute top-5 py-2 px-20 text-[1rem]  z-[1000]">
       <ul className="flex justify-between w-full">

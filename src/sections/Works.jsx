@@ -1,29 +1,7 @@
 import { works } from "../constants/index.js";
 import { Link } from "react-router-dom";
-import gsap from "gsap";
-import { SplitText } from "gsap/all";
-import { useEffect } from "react";
-import { Reveler } from "../components/Reveler.jsx";
-
 
 const LinkButton = ({ item }) => {
-  useEffect(()=>{
-   
-    const titleSplit = new SplitText(".text-anime", {
-      type: "chars",
-    });
-
-    gsap.from(titleSplit.chars, {
-      scrollTrigger: { trigger: ".text-anime", start: "top 50%"  },
-      y: 100,
-      opacity: 0,
-      stagger: 0.05,
-      duration: 1,
-      delay:2,
-      ease: "power3.out",
-    });
-    
-  },[]);
   return (
     <Link
       to={item.link}
@@ -38,21 +16,15 @@ const LinkButton = ({ item }) => {
 };
 
 const Works = () => {
- 
-    Reveler();
-
-
-  return (<>
-  <div className="revealer"></div>
+  return (
     <section className="flex justify-start rounded-t-2xl items-center flex-col w-full  bg-[var(--bg-main)] text-black h-auto ">
-      
-     
+      <div className="revealer"></div>
       <div className="flex justify-start items-end pb-15 bg-black w-full px-20 text-white h-[60dvh] rounded-b-3xl">
         <h1
-          className=" overflow-hidden text-anime inline-flex text-[6dvw] font-bold leading-tight"
+          className="inline-flex text-[6dvw] font-bold leading-tight"
           style={{ fontFamily: "subtitle" }}
         >
-          Achievements
+          Works &<br></br>Achievements
         </h1>
         <img src="/images/down-arrow.svg" alt="arrow" className="w-18 " />
       </div>
@@ -111,7 +83,6 @@ const Works = () => {
         </div>
       </div>
     </section>
-    </>
   );
 };
 export default Works;

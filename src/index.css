@@ -76,15 +76,3 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
 }
-
-.revealer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100dvw;
-  height: 100svh;
-  transform-origin: center top;
-  background-color: rgb(33, 33, 33);
-  pointer-events: none;
-  z-index: 99999;
-}

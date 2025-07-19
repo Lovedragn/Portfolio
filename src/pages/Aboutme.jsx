@@ -10,95 +10,84 @@ import { SplitText } from "gsap/SplitText"; // ✅ new syntax
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Aboutme = () => {
-
-  const resumeRef = useRef();
   const aboutRef = useRef();
   const titleRef = useRef();
   const videoRef = useRef();
+  const resumeRef = useRef();
 
   useGSAP(() => {
     document.fonts.ready.then(() => {
       // Split and mask title
-      SplitText.create(titleRef.current, {
-        type: "chars",
-        mask: "lines",
-        onSplit(self) {
-          gsap.from(self.chars, {
-            scrollTrigger: {
-              trigger: titleRef.current,
-              start: "top 90%",
-            },
-            y: 100,
-            autoAlpha: 0,
-            duration: 0.5,
-            ease: "power3.out",
-            stagger: 0.03,
-          });
-        },
-      });
+      if (titleRef.current) {
+        SplitText.create(titleRef.current, {
+          type: "chars",
+          mask: "lines",
+          onSplit(self) {
+            if (self.chars && self.chars.length > 0) {
+              gsap.from(self.chars, {
+                scrollTrigger: {
+                  trigger: titleRef.current,
+                  start: "top 90%",
+                },
+                y: 100,
+                autoAlpha: 0,
+                duration: 0.5,
+                ease: "power3.out",
+                stagger: 0.03,
+              });
+            }
+          },
+        });
+      }
 
       // Split and mask paragraph
-      SplitText.create(aboutRef.current, {
-        type: "lines, words",
-        mask: "lines",
-        onSplit(self) {
-          gsap.from(self.words, {
+      if (aboutRef.current) {
+        SplitText.create(aboutRef.current, {
+          type: "lines, words",
+          mask: "lines",
+          onSplit(self) {
+            if (self.words && self.words.length > 0) {
+              gsap.from(self.words, {
+                scrollTrigger: {
+                  trigger: aboutRef.current,
+                  start: "top 90%",
+                },
+                y: 100,
+                autoAlpha: 0,
+                duration: 2,
+                ease: "power3.out",
+                stagger: 0.03,
+              });
+            }
+          },
+        });
+      }
+
+      // Animate resume if it exists
+      if (resumeRef.current) {
+        gsap.fromTo(
+          resumeRef.current,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
             scrollTrigger: {
-              trigger: aboutRef.current,
+              trigger: resumeRef.current,
               start: "top 90%",
             },
-            y: 100,
-            autoAlpha: 0,
-            duration: 2,
-            ease: "power3.out",
-            stagger: 0.03,
-          });
-        },
-      });
-    });
-
-  
-    const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: videoRef.current,
-    start: "top 30%",
-    once: true,
-    onEnter: () => {
-      videoRef.current.play();
-    },
-  },
-});
-
-tl.fromTo(
-  videoRef.current,
-  {
-    clipPath: "polygon(17.55% 94.18%, 61.03% 56.46%, 100% 0%, 27.26% 19.5%)",
-  },
-  {
-    duration: 2,
-    ease: "power3.out",
-    clipPath: "polygon(21.87% 100%, 92.35% 80.66%, 99.86% 26.42%, 0% 0%)",
-  }
-);
-
-
-    gsap.fromTo(
-      "#resume",
-      {
-        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-      },
-      {
-        clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: "#resume", // 💡 Set trigger element
-          start: "top 70%", // adjust as needed
-        },
+          }
+        );
       }
-    );
+    });
   }, []);
 
+  // Example: play video only if it exists
+  const handlePlayVideo = () => {
+    if (videoRef.current && typeof videoRef.current.play === "function") {
+      videoRef.current.play();
+    }
+  };
 
   const download = () => {
     const link = document.createElement("a");
