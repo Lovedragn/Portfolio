@@ -1,15 +1,14 @@
 import { navbar, socialLinks, footer } from "../constants/index.js";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <nav className="flex items-center justify-between w-full px-20 gap-15 py-5 flex-col text-[1.5rem] font-bold bg-[var(--bg-main)] ">
+    <nav className="flex items-center justify-between w-full h-[50vh] px-20 pt-20 pb-5 flex-col text-[1.5rem] font-bold bg-[var(--bg-main)] ">
       <ul className="flex justify-around items-start w-full h-fit">
-        <div className="flex w-full h-full justify-start items-start ">
-          <Link to={"/"} className="cursor-hover-target ">
+        <div className="flex w-full h-full justify-start items-start">
+          <Link to={"/"} className="cursor-hover-target">
             <img src="logo.svg" width={60} />
           </Link>
         </div>
@@ -20,7 +19,7 @@ const Footer = () => {
               {navbar.map((item, index) => (
                 <li
                   key={index}
-                  className="cursor-hover-inverse-target text-hover"
+                  className="cursor-hover-inverse-target"
                 >
                   {item.text === "Contact" ? (
                     <button
@@ -44,7 +43,7 @@ const Footer = () => {
 
             <ul className="flex flex-col items-start justify-start ">
               {socialLinks.map((item, index) => (
-                <li key={index} className="cursor-hover-inverse-target text-hover">
+                <li key={index} className="cursor-hover-inverse-target">
                   <Link to={item.link} style={{ fontFamily: "subtitle" }}>
                     {item.text}
                   </Link>
@@ -55,7 +54,7 @@ const Footer = () => {
         </div>
       </ul>
 
-      <ul className="text-[1rem] font-thin h-full text-hover" style={{ fontFamily: "paragraph" }}>
+      <ul className="text-[1rem] font-thin" style={{ fontFamily: "paragraph" }}>
         {footer}
       </ul>
     </nav>

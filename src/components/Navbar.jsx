@@ -11,31 +11,27 @@ const Navbar = () => {
   const linkRefs = useRef([]);
 
   useGSAP(() => {
-    const logo = document.querySelector("#logo");
-    if (logo) {
-      gsap.from(logo, {
-        rotate: 360,
-        scale: 0.6,
-        delay: 6,
-        duration: 2,
-        ease: "power1.inOut",
-      });
-    }
-    const navlinks = document.querySelectorAll("#navlink");
-    if (navlinks.length > 0) {
-      gsap.fromTo(
-        navlinks,
-        {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        },
-        {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          color: "gray",
-          delay: 5.5,
-          ease: "power2.in",
-        }
-      );
-    }
+    gsap.from("#logo", {
+      rotate: 360,
+      scale: 0.6,
+      delay: 5.5,
+      duration: 2,
+      ease: "power1.inOut",
+    });
+    gsap.fromTo(
+      "#navlink",
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        
+      },
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+color:"black",
+        delay: 4.5,
+        ease: "power2.in",
+      }
+    );
+
     linkRefs.current.forEach((el) => {
       if (!el) return;
       const underline = el.querySelector(".underline-bar");
@@ -47,7 +43,6 @@ const Navbar = () => {
       el.addEventListener("mouseenter", () => {
         gsap.set(underline, { transformOrigin: "left" });
         gsap.to(underline, {
-          scaleY: 0.5,
           scaleX: 1,
           duration: 0.3,
           ease: "power2.inOut",
@@ -58,7 +53,7 @@ const Navbar = () => {
         gsap.to(underline, {
           scaleX: 0,
           duration: 0.2,
-          backgroundColor: "grey",
+          backgroundColor:"black",
           ease: "power2.inOut",
         });
       });
@@ -66,7 +61,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="flex-center w-full absolute top-5 py-2 px-20 text-[1rem]  z-[1000]">
+    <nav className="flex-center w-full absolute top-5 py-2 px-20 text-[1rem] text-white z-[9999]">
       <ul className="flex justify-between w-full">
         {navbar.map((item, index) => (
           <li
@@ -83,7 +78,7 @@ const Navbar = () => {
               <button
                 id={"navlink"}
                 style={{ fontFamily: "paragraph" }}
-                className="mix-blend-difference bg-transparent border-none outline-none cursor-pointer  relative"
+                className="mix-blend-difference bg-transparent border-none outline-none cursor-pointer relative"
                 onClick={() =>
                   navigate("/contact", {
                     state: { backgroundLocation: location },

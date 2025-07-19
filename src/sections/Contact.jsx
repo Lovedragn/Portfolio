@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import close from "/close.svg";
 import emailjs from "emailjs-com";
-import gsap from "gsap";
 
 const SERVICE_ID = "service_fsqwp14";
 const TEMPLATE_ID = "template_slvufhm";
@@ -9,13 +8,12 @@ const PUBLIC_KEY = "v8Fr6SBz8cBX2P7fp";
 
 const Contact = ({ onClose }) => {
   const formRef = useRef();
-  const containerRef = useRef();
-  const backdropRef = useRef();
   const [isSending, setIsSending] = useState(false);
   const [sent, setSent] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
+<<<<<<< HEAD
     // Animate in from bottom
     gsap.to(
       backdropRef.current,
@@ -28,6 +26,8 @@ const Contact = ({ onClose }) => {
     );
     // Animate backdrop blur
    
+=======
+>>>>>>> parent of af2b244 (batch 2 gsap)
     return () => {
       document.body.style.overflow = "";
     };
@@ -54,6 +54,7 @@ const Contact = ({ onClose }) => {
   };
 
   return (
+<<<<<<< HEAD
     <section
       ref={backdropRef}
       className="fixed  inset-0 z-[9999] py-[60dvh] overflow-x-hidden"
@@ -64,6 +65,12 @@ const Contact = ({ onClose }) => {
         className="flex items-start justify-center min-h-screen  px-4"
       >
         <div className="relative bg-white w-full max-w-[720px]  aspect-[3/3] flex flex-col justify-start p-3 rounded-sm">
+=======
+    <section className="fixed inset-0 z-[9999] bg-black/10 backdrop-blur-lg overflow-y-auto">
+      
+      <div className="flex items-start justify-center min-h-screen py-[30vh] px-4">
+        <div className="relative bg-white w-full max-w-[720px] shadow-4xl aspect-[3/3] flex flex-col justify-start p-3 rounded-sm">
+>>>>>>> parent of af2b244 (batch 2 gsap)
           <div className="flex justify-between items-center border-b pb-20 mb-8">
             <h1 className="text-5xl font-extrabold" style={{ fontFamily: "subtitle" }}>
               Let's Talk

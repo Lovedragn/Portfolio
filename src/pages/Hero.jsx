@@ -9,12 +9,12 @@ CustomEase.create("hop", "0,0 C0.767,0 0.1,1 1,1 ");
 
 // Array of sliced SVGs in correct visual order
 const slices = [
-  "/images/hero-name/Slice-1.svg",
-  "/images/hero-name/Slice-2.svg",
-  "/images/hero-name/Slice-3.svg",
-  "/images/hero-name/Slice-4.svg",
-  "/images/hero-name/Slice-5.svg",
-  "/images/hero-name/Slice-6.svg",
+  "/public/images/hero-name/Slice-1.svg",
+  "/public/images/hero-name/Slice-2.svg",
+  "/public/images/hero-name/Slice-3.svg",
+  "/public/images/hero-name/Slice-4.svg",
+  "/public/images/hero-name/Slice-5.svg",
+  "/public/images/hero-name/Slice-6.svg",
 ];
 
 const Hero = () => {

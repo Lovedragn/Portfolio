@@ -35,6 +35,7 @@ const Aboutme = () => {
         },
       });
 
+<<<<<<< HEAD
       // Split and mask paragraph
       SplitText.create(aboutRef.current, {
         type: "lines, words",
@@ -53,6 +54,25 @@ const Aboutme = () => {
           });
         },
       });
+=======
+    // Split and mask paragraph
+    SplitText.create(aboutRef.current, {
+      type: "lines, words",
+      mask: "lines",
+      onSplit(self) {
+        gsap.from(self.words, {
+          scrollTrigger: {
+            trigger: aboutRef.current,
+            start: "top 90%",
+          },
+          y: 100,
+          autoAlpha: 0,
+          duration: 2,
+          ease: "power3.out",
+          stagger: 0.02,
+        });
+      },
+>>>>>>> parent of af2b244 (batch 2 gsap)
     });
 
   
@@ -112,7 +132,7 @@ tl.fromTo(
         <div className="flex items-end gap-2 pb-15">
           <h1
             ref={titleRef}
-            className="text-white text-4xl font-bold overflow-hidden text-hover"
+            className="text-white text-4xl font-bold overflow-hidden"
             style={{ fontFamily: "subtitle" }}
           >
             About me
@@ -127,7 +147,6 @@ tl.fromTo(
               src="/student1.mp4"
               className="rounded-xl border-white w-[40dvh] max-w-[300px]"
               preload="false"
-              muted
             />
 
             <div
@@ -136,7 +155,11 @@ tl.fromTo(
             >
               <h1
                 ref={aboutRef}
+<<<<<<< HEAD
                 className="text-xl md:text-2xl leading-snug text-balance max-w-xl hover:text-white hover:underline"
+=======
+                className="text-xl md:text-2xl leading-snug text-balance max-w-xl"
+>>>>>>> parent of af2b244 (batch 2 gsap)
               >
                 {aboutme}
               </h1>

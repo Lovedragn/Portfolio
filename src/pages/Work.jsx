@@ -1,13 +1,8 @@
-import { useRef, useEffect } from "react";
 import { works } from "../constants/index.js";
 import { Link } from "react-router-dom";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
-
-gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Work = () => {
+<<<<<<< HEAD
   const titleRef = useRef();
   const containerRef = useRef();
 
@@ -53,19 +48,14 @@ const Work = () => {
     });
   }, []);
 
+=======
+>>>>>>> parent of af2b244 (batch 2 gsap)
   return (
-    <section
-      ref={containerRef}
-      className="flex justify-start rounded-t-2xl items-center flex-col w-full bg-[var(--bg-main)] text-black h-auto p-20"
-    >
-
-      <div className="flex items-start w-full h-auto gap-20">
+    <section className="flex justify-start rounded-t-2xl items-center flex-col w-full bg-[var(--bg-main)] text-black h-auto p-20">
+      <div className="revealer"></div>
+      <div className="flex  items-start w-full h-auto gap-20 ">
         <div className="flex items-end gap-2 pb-15">
-          <h1
-            ref={titleRef}
-            className="text-4xl font-bold whitespace-nowrap overflow-hidden text-hover"
-            style={{ fontFamily: "subtitle" }}
-          >
+          <h1 className="text-4xl font-bold" style={{ fontFamily: "subtitle" }}>
             Works
           </h1>
 
@@ -75,33 +65,34 @@ const Work = () => {
             className="w-6 invert"
           />
         </div>
-
-        <div className="flex flex-col w-full h-auto pt-30 hover">
-          {works.slice(0, 3).map((item, index) => (
+        <div className="flex flex-col w-full h-auto pt-30">
+          {works.slice(0, 4).map((item, index) => (
             <div
               key={index}
-              className="work-item grid grid-cols-3 text-2xl items-start gap-4 border-t border-[var(--border-dark)] px-2 relative text-hover"
+              className="grid grid-cols-3 text-2xl items-start gap-4 border-t border-[var(--border-dark)] px-2"
             >
-              <div className="top-border absolute top-0 left-0 w-full h-[1px] bg-black origin-left scale-x-0" />
-
+              {/* ID */}
               <h1
-                className="leading-0 py-6 cursor-hover-inverse-target w-fit font-bold"
+                className="leading-0 py-6 cursor-hover-inverse-target w-fit "
                 style={{ fontFamily: "paragraph" }}
               >
-                {item.id}
+                {String(index + 1).padStart(2, "0")}
               </h1>
 
-              <div className="flex flex-col leading-0 py-6 w-fit h-fit cursor-hover-inverse-target">
+              {/* Text + Title */}
+              <div className="flex flex-col leading-0  py-6 w-fit h-fit  cursor-hover-inverse-target hover:underline">
                 <Link
                   to={item.live}
                   style={{ fontFamily: "paragraph" }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  
+                  className="text-black"
                 >
                   {item.text}
                 </Link>
               </div>
+
+              {/* Image */}
 
               {item.image && (
                 <Link
@@ -125,5 +116,4 @@ const Work = () => {
     </section>
   );
 };
-
 export default Work;
