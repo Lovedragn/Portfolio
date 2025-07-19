@@ -48,22 +48,21 @@ const Works = () => {
         />
       )}
       <section className="flex justify-start rounded-t-2xl items-center flex-col w-full  bg-[var(--bg-main)] text-black h-auto ">
-        <div className="revealer"></div>
-        <div className="flex justify-start items-end pb-15 bg-black w-full px-20 text-white h-[60dvh] rounded-b-3xl cursor-hover-target">
+        <div className="flex justify-start items-end pb-15 max-md:pb-5 bg-black w-full px-20 max-md:px-5 text-white h-[60vh] max-md:h-[30vh] rounded-b-3xl cursor-hover-target">
           <h1
-            className="inline-flex text-[6dvw] font-bold leading-tight"
+            className="inline-flex text-[6dvw] max-md:text-[10dvw] font-bold leading-tight"
             style={{ fontFamily: "subtitle" }}
           >
             Works &<br></br>Achievements
           </h1>
-          <img src="/images/down-arrow.svg" alt="arrow" className="w-18 " />
+          <img src="/images/down-arrow.svg" alt="arrow" className="w-18 max-md:w-8" />
         </div>
-        <div className="flex  items-start w-full h-auto gap-20 px-20 ">
-          <div className="flex flex-col w-full h-auto py-20">
+        <div className="flex  items-start w-full h-auto gap-20 px-20 max-md:px-5 max-md:gap-10">
+          <div className="flex flex-col w-full h-auto py-20 max-md:py-5">
             {works.map((item, index) => (
               <div
                 key={index}
-                className="grid grid-cols-3 text-2xl items-start gap-4 border-t border-[var(--border-dark)] px-2"
+                className="grid grid-cols-3 text-2xl items-start gap-4 border-t border-[var(--border-dark)] px-2 max-md:grid-cols-1 max-md:px-0 max-md:gap-[0]"
               >
                 {/* ID */}
                 <h1

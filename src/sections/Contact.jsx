@@ -61,8 +61,8 @@ const Contact = ({ onClose }) => {
         className="flex items-start justify-center min-h-screen  px-4"
       >
         <div className="relative bg-white w-full max-w-[720px]  aspect-[3/3] flex flex-col justify-start p-3 rounded-sm">
-          <div className="flex justify-between items-center border-b pb-20 mb-8">
-            <h1 className="text-5xl font-extrabold" style={{ fontFamily: "subtitle" }}>
+          <div className="flex justify-between items-center border-b pb-20 mb-8 max-md:pb-10">
+            <h1 className="text-5xl font-extrabold max-md:text-4xl" style={{ fontFamily: "subtitle" }}>
               Let's Talk
             </h1>
             <button onClick={onClose} aria-label="Close">
@@ -79,8 +79,8 @@ const Contact = ({ onClose }) => {
               <div className=" w-40 h-full" />
               <div className="flex flex-col gap-4 w-full">
                 <label className="flex items-center gap-6 border-b pb-2 font-bold">
-                  <span className="w-6">01</span>
-                  <span className="w-[120px]">Your Name</span>
+                  <span className="w-6 max-md:hidden">01</span>
+                  <span className="w-[120px] whitespace-nowrap">Your Name</span>
                   <input
                     type="text"
                     name="user_name"
@@ -90,7 +90,7 @@ const Contact = ({ onClose }) => {
                 </label>
 
                 <label className="flex items-center gap-6 border-b pb-2 font-bold">
-                  <span className="w-6">02</span>
+                  <span className="w-6 max-md:hidden">02</span>
                   <span className="w-[120px]">Your Email</span>
                   <input
                     type="email"
@@ -101,7 +101,7 @@ const Contact = ({ onClose }) => {
                 </label>
 
                 <label className="flex items-start gap-6 border-b pb-2 font-bold">
-                  <span className="w-6">03</span>
+                  <span className="w-6 max-md:hidden">03</span>
                   <span className="w-[120px]">Message</span>
                   <textarea
                     name="message"
@@ -116,7 +116,7 @@ const Contact = ({ onClose }) => {
             <button
               type="submit"
               disabled={isSending}
-              className="mt-8 underline text-black py-2 font-bold text-2xl self-end"
+              className="mt-8 max-md:mt-0 underline text-black py-2 font-bold text-2xl self-end"
             >
               {isSending ? "Sending..." : sent ? "Sent!" : "Submit"}
             </button>
