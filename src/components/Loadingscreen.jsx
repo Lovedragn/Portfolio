@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useEffect } from "react";
 
-const Loadingscreen = () => {
+const Loadingscreen = ({ onFinish }) => {
   let currentvalue = 0;
   useEffect(() => {
     let counterElement = document.querySelector(".counter");
@@ -21,13 +21,12 @@ const Loadingscreen = () => {
       setTimeout(count, delay);
     };
     count();
-  });
+  }, []);
 
   useGSAP(() => {
     gsap.to("#counter", {
      delay:3.5,
      opacity:0,
-    
     });
     gsap.to("#bar", {
       delay: 4,
@@ -37,18 +36,14 @@ const Loadingscreen = () => {
     });
 
     gsap.to("#overlay", {
-    delay: 6,
-    opacity: 0,
-    pointerEvents: "none", // optional CSS change
-    onComplete: () => {
-      // Hide overlay completely
-      const overlay = document.getElementById("overlay");
-      if (overlay) {
-        overlay.style.display = "none";
-      }
-    },
-  });
-  });
+      delay: 6,
+      opacity: 0,
+      pointerEvents: "none",
+      onComplete: () => {
+        if (onFinish) onFinish();
+      },
+    });
+  }, [onFinish]);
 
   return (
     <div

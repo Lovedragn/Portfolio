@@ -12,43 +12,45 @@ const Work = () => {
   const containerRef = useRef();
 
   useEffect(() => {
-    const titleSplit = new SplitText(titleRef.current, {
-      type: "chars",
-    });
-
-    gsap.from(titleSplit.chars, {
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: "top 80%",
-      },
-      y: 100,
-      opacity: 0,
-      stagger: 0.05,
-      duration: 1,
-      ease: "power3.out",
-    });
-
-    // Animate each grid item
-    gsap.utils.toArray(".work-item").forEach((el) => {
-      const border = el.querySelector(".top-border");
-
-      gsap.to(border, {
-        scaleX: 1,
-        duration: 2,
-        
-        ease: "power2.out",
-        scrollTrigger: {
-          once:true,
-          trigger: el,
-          start: "top 50%",
-          toggleActions: "play none none none",
-        },
+    document.fonts.ready.then(() => {
+      const titleSplit = new SplitText(titleRef.current, {
+        type: "chars",
       });
-    });
 
-    return () => {
-      titleSplit.revert();
-    };
+      gsap.from(titleSplit.chars, {
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 80%",
+        },
+        y: 100,
+        opacity: 0,
+        stagger: 0.05,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      // Animate each grid item
+      gsap.utils.toArray(".work-item").forEach((el) => {
+        const border = el.querySelector(".top-border");
+        if (!border) return;
+        gsap.to(border, {
+          scaleX: 1,
+          duration: 2,
+          ease: "power2.out",
+          scrollTrigger: {
+            once:true,
+            trigger: el,
+            start: "top 50%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+
+      // Clean up
+      return () => {
+        titleSplit.revert();
+      };
+    });
   }, []);
 
   return (

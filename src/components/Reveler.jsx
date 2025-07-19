@@ -1,24 +1,49 @@
 import { useGSAP } from "@gsap/react";
 import { CustomEase } from "gsap/CustomEase";
 import gsap from "gsap";
-import { useLocation } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import { useTransition } from "../context/TransitionContext.jsx";
 
 gsap.registerPlugin(CustomEase);
 CustomEase.create("hop", "0.9, 0, 0.1,1");
 
 export const Reveler = () => {
-  const location = useLocation();
   const revealerRef = useRef();
+  const { isTransitioning, onCoverCallback, setOnCoverCallback, setTransitioning } = useTransition();
 
-  useGSAP(() => {
-    const tl = gsap.timeline();
-    // Cover (in)
-    tl.set(revealerRef.current, { scaleY: 0, transformOrigin: "center" })
-      .to(revealerRef.current, { scaleY: 1, duration: 0.5, ease: "hop" })
-      // Reveal (out)
-      .to(revealerRef.current, { scaleY: 0, duration: 1, delay: 0.1, ease: "hop" });
-  }, [location.pathname]);
+  useEffect(() => {
+    if (!isTransitioning) return;
+    const tl = gsap.timeline({
+      onComplete: () => {
+        setTransitioning(false);
+      },
+    });
+    tl.set(revealerRef.current, {
+      scaleY: 0,
+      transformOrigin: "center 80%",
+      scaleX: 0.4,
+    })
+      .to(revealerRef.current, {
+        scaleY: 1,
+        duration: 1.1,
+        ease: "hop",
+        scaleX: 1,
+        onComplete: () => {
+          if (onCoverCallback) {
+            onCoverCallback();
+            setOnCoverCallback(null);
+          }
+        },
+      })
+      .to(revealerRef.current, {
+        scaleY: 0,
+        duration: 0.9,
+        delay: 0.1,
+        ease: "hop",
+        scaleX: 1,
+        transformOrigin: "top 10%",
+      });
+  }, [isTransitioning, onCoverCallback, setOnCoverCallback, setTransitioning]);
 
   return (
     <div
@@ -27,11 +52,14 @@ export const Reveler = () => {
       style={{
         position: "fixed",
         inset: 0,
-        background: "#ffffff", // Change color as needed
+        background: "#ffffff",
         zIndex: 99999,
         transform: "scaleY(0)",
-        transformOrigin: "center",
         pointerEvents: "none",
+        display: "flex",
+        alignItems: "flex-end",
+        justifyContent: "flex-end",
+        pointerEvents: isTransitioning ? "auto" : "none",
       }}
     />
   );

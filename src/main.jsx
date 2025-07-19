@@ -11,6 +11,8 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Layout from "./Layout";
+import { TransitionProvider } from "./context/TransitionContext.jsx";
+import { Reveler } from "./components/Reveler";
 
 function ModalSwitch() {
   const location = useLocation();
@@ -42,7 +44,10 @@ function ContactModal({ onClose }) {
 }
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <ModalSwitch />
-  </BrowserRouter>
+  <TransitionProvider>
+    <Reveler />
+    <BrowserRouter>
+      <ModalSwitch />
+    </BrowserRouter>
+  </TransitionProvider>
 );

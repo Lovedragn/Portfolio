@@ -15,43 +15,44 @@ const Aboutme = () => {
   const videoRef = useRef();
 
   useGSAP(() => {
-    // Split and mask title
-    SplitText.create(titleRef.current, {
-      type: "chars",
-      mask: "lines",
-      onSplit(self) {
-        gsap.from(self.chars, {
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 90%",
-          },
-          y: 100,
-          autoAlpha: 0,
-          duration: 0.5,
-          ease: "power3.out",
-          stagger: 0.03,
-        });
-      },
-    });
+    document.fonts.ready.then(() => {
+      // Split and mask title
+      SplitText.create(titleRef.current, {
+        type: "chars",
+        mask: "lines",
+        onSplit(self) {
+          gsap.from(self.chars, {
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: "top 90%",
+            },
+            y: 100,
+            autoAlpha: 0,
+            duration: 0.5,
+            ease: "power3.out",
+            stagger: 0.03,
+          });
+        },
+      });
 
-    // Split and mask paragraph
-    SplitText.create(aboutRef.current, {
-      type: "lines, words",
-      mask: "lines",
-      onSplit(self) {
-        gsap.from(self.words, {
-          scrollTrigger: {
-            trigger: aboutRef.current,
-            start: "top 90%",
-          },
-          y: 100,
-          autoAlpha: 0,
-          duration: 2,
-          ease: "power3.out",
-          stagger: 0.02,
-          
-        });
-      },
+      // Split and mask paragraph
+      SplitText.create(aboutRef.current, {
+        type: "lines, words",
+        mask: "lines",
+        onSplit(self) {
+          gsap.from(self.words, {
+            scrollTrigger: {
+              trigger: aboutRef.current,
+              start: "top 90%",
+            },
+            y: 100,
+            autoAlpha: 0,
+            duration: 2,
+            ease: "power3.out",
+            stagger: 0.03,
+          });
+        },
+      });
     });
 
   
@@ -135,7 +136,7 @@ tl.fromTo(
             >
               <h1
                 ref={aboutRef}
-                className="text-xl md:text-2xl leading-snug text-balance max-w-xl text-hover"
+                className="text-xl md:text-2xl leading-snug text-balance max-w-xl hover:text-white hover:underline"
               >
                 {aboutme}
               </h1>

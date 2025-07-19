@@ -4,33 +4,48 @@ import { Outlet, useLocation } from "react-router-dom";
 import Cursor from "./components/Curser";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Loadingscreen from "./components/Loadingscreen.jsx";
-import { Reveler } from "./components/Reveler";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { PreloaderProvider, usePreloader } from "./context/PreloaderContext.jsx";
 
-const Layout = () => {
+const LayoutInner = () => {
   const location = useLocation();
-  const [showContent, setShowContent] = useState(true);
+  const { isLoading, setIsLoading } = usePreloader();
+  const [showPreloader, setShowPreloader] = useState(true);
+  const isFirstLoad = useRef(true);
 
   useEffect(() => {
-    setShowContent(false); // Hide content on route change
-    const timeout = setTimeout(() => {
-      setShowContent(true); // Show after animation
-    }, 1500); // Match the total duration of the Reveler animation
+    if (isFirstLoad.current) {
+      setIsLoading(true);
+      setShowPreloader(true);
+    } else {
+      setIsLoading(false);
+      setShowPreloader(false);
+    }
+  }, [location.pathname, setIsLoading]);
 
-    return () => clearTimeout(timeout);
-  }, [location.pathname]);
+  // When preloader is done
+  const handlePreloaderDone = () => {
+    setIsLoading(false);
+    setShowPreloader(false);
+    isFirstLoad.current = false;
+  };
 
   return (
     <>
-      <Reveler />
-      <Navbar />
-      <Loadingscreen />
+      {showPreloader && <Loadingscreen onFinish={handlePreloaderDone} />}
+      <Navbar theme="light" />
       <Cursor />
       <ScrollToTop />
-      {showContent && <Outlet />}
+      {!isLoading && <Outlet />}
       <Footer />
     </>
   );
 };
+
+const Layout = () => (
+  <PreloaderProvider>
+    <LayoutInner />
+  </PreloaderProvider>
+);
 
 export default Layout;

@@ -24,11 +24,10 @@ const Hero = () => {
     () => {
       gsap.from(".hero-slice", {
         opacity: 1,
-        yPercent: 80,
-        delay: 5, // adjust if needed
-        duration: 0.7,
+        yPercent: 80, // adjust if needed
+        duration: 2.7,
         stagger: 0.08,
-        ease: "power1.out",
+        ease: "power3.inOut",
       });
     },
     { scope: containerRef }
@@ -45,7 +44,7 @@ const Hero = () => {
         duration: 2,
         ease: "hop",
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        delay: 4.3,
+        delay: 0.5,
         scaleY: 1,
       }
     );

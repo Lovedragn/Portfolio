@@ -19,12 +19,12 @@ const Contact = ({ onClose }) => {
     // Animate in from bottom
     gsap.to(
       backdropRef.current,
-      {  backgroundColor:"rgba(255,0,0 ,0.8)", duration: 2, ease: "power3.out" }
+      {  backgroundColor:"rgba(0,0,0 ,0.1)", duration: 2, ease: "power1.inOut" }
     );
     gsap.fromTo(
       containerRef.current,
       { y: "100vh" },
-      { y: 0, duration: 1.5, ease: "power3.out" }
+      { y: 0, duration: 1.5, ease: "power3.out" , opacity:1 }
     );
     // Animate backdrop blur
    
@@ -56,14 +56,14 @@ const Contact = ({ onClose }) => {
   return (
     <section
       ref={backdropRef}
-      className="fixed inset-0 z-[9999] overflow-x-hidden"
+      className="fixed  inset-0 z-[9999] py-[60dvh] overflow-x-hidden"
 
     >
       <div
         ref={containerRef}
-        className="flex items-start justify-center min-h-screen py-[60dvh] px-4"
+        className="flex items-start justify-center min-h-screen  px-4"
       >
-        <div className="relative bg-white w-full max-w-[720px] shadow-4xl aspect-[3/3] flex flex-col justify-start p-3 rounded-sm">
+        <div className="relative bg-white w-full max-w-[720px]  aspect-[3/3] flex flex-col justify-start p-3 rounded-sm">
           <div className="flex justify-between items-center border-b pb-20 mb-8">
             <h1 className="text-5xl font-extrabold" style={{ fontFamily: "subtitle" }}>
               Let's Talk
