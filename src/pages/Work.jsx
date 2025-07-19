@@ -2,54 +2,6 @@ import { works } from "../constants/index.js";
 import { Link } from "react-router-dom";
 
 const Work = () => {
-<<<<<<< HEAD
-  const titleRef = useRef();
-  const containerRef = useRef();
-
-  useEffect(() => {
-    document.fonts.ready.then(() => {
-      const titleSplit = new SplitText(titleRef.current, {
-        type: "chars",
-      });
-
-      gsap.from(titleSplit.chars, {
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 80%",
-        },
-        y: 100,
-        opacity: 0,
-        stagger: 0.05,
-        duration: 1,
-        ease: "power3.out",
-      });
-
-      // Animate each grid item
-      gsap.utils.toArray(".work-item").forEach((el) => {
-        const border = el.querySelector(".top-border");
-        if (!border) return;
-        gsap.to(border, {
-          scaleX: 1,
-          duration: 2,
-          ease: "power2.out",
-          scrollTrigger: {
-            once:true,
-            trigger: el,
-            start: "top 50%",
-            toggleActions: "play none none none",
-          },
-        });
-      });
-
-      // Clean up
-      return () => {
-        titleSplit.revert();
-      };
-    });
-  }, []);
-
-=======
->>>>>>> parent of af2b244 (batch 2 gsap)
   return (
     <section className="flex justify-start rounded-t-2xl items-center flex-col w-full bg-[var(--bg-main)] text-black h-auto p-20">
       <div className="revealer"></div>

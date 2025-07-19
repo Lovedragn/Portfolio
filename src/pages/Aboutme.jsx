@@ -155,11 +155,7 @@ tl.fromTo(
             >
               <h1
                 ref={aboutRef}
-<<<<<<< HEAD
-                className="text-xl md:text-2xl leading-snug text-balance max-w-xl hover:text-white hover:underline"
-=======
                 className="text-xl md:text-2xl leading-snug text-balance max-w-xl"
->>>>>>> parent of af2b244 (batch 2 gsap)
               >
                 {aboutme}
               </h1>

@@ -13,21 +13,6 @@ const Contact = ({ onClose }) => {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-<<<<<<< HEAD
-    // Animate in from bottom
-    gsap.to(
-      backdropRef.current,
-      {  backgroundColor:"rgba(0,0,0 ,0.1)", duration: 2, ease: "power1.inOut" }
-    );
-    gsap.fromTo(
-      containerRef.current,
-      { y: "100vh" },
-      { y: 0, duration: 1.5, ease: "power3.out" , opacity:1 }
-    );
-    // Animate backdrop blur
-   
-=======
->>>>>>> parent of af2b244 (batch 2 gsap)
     return () => {
       document.body.style.overflow = "";
     };
@@ -54,18 +39,6 @@ const Contact = ({ onClose }) => {
   };
 
   return (
-<<<<<<< HEAD
-    <section
-      ref={backdropRef}
-      className="fixed  inset-0 z-[9999] py-[60dvh] overflow-x-hidden"
-
-    >
-      <div
-        ref={containerRef}
-        className="flex items-start justify-center min-h-screen  px-4"
-      >
-        <div className="relative bg-white w-full max-w-[720px]  aspect-[3/3] flex flex-col justify-start p-3 rounded-sm">
-=======
     <section className="fixed inset-0 z-[9999] bg-black/10 backdrop-blur-lg overflow-y-auto">
       
       <div className="flex items-start justify-center min-h-screen py-[30vh] px-4">
