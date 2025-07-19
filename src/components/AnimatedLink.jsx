@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import { useTransition } from "../context/TransitionContext.jsx";
+import { useTransition } from "../context/TransitionContext";
 
 const AnimatedLink = ({ to, children, ...props }) => {
   const navigate = useNavigate();
-  const { setTransitioning, setOnCoverCallback } = useTransition();
+  const { setIsTransitioning, setOnCover } = useTransition();
 
   const handleClick = (e) => {
     e.preventDefault();
-    setOnCoverCallback(() => () => navigate(to));
-    setTransitioning(true);
+    setOnCover(() => () => navigate(to));
+    setIsTransitioning(true);
   };
 
   return (

@@ -71,7 +71,7 @@ const Aboutme = () => {
             clipPath: "polygon(19% 17%, 100% 0, 52% 45%, 27% 94%)",
           },
           {
-            clipPath: "polygon(0% 0%, 81% 18%, 90% 91%, 28% 72%)",
+            clipPath: "polygon(0% 0%, 81% 18%, 90% 60%, 28% 82%)",
             duration: 2,
             ease: "power3.out",
             scrollTrigger: {

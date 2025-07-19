@@ -20,7 +20,7 @@ const TextRoll = () => {
     },{ 
       yPercent: 0,
       ease: "hop",
-      delay: 5.7,
+      delay: 2.7,
     });
     gsap.fromTo(
       "#text-container",
@@ -29,7 +29,7 @@ const TextRoll = () => {
       },
       {
         overflow: "hidden",
-        delay: 6.2,
+        delay: 1.2,
         ease: "power1.out",
       }
     );

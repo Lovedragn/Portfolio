@@ -25,7 +25,7 @@ const Hero = () => {
       gsap.from(".hero-slice", {
         opacity: 1,
         yPercent: 80, // adjust if needed
-        duration: 2.7,
+        duration: 5.2,
         stagger: 0.08,
         ease: "power3.inOut",
       });
@@ -44,29 +44,31 @@ const Hero = () => {
         duration: 2,
         ease: "hop",
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        delay: 0.5,
+        delay: 5,
         scaleY: 1,
       }
     );
   });
 
   return (
-    <section className="section w-full flex items-between flex-col h-[110dvh]">
-      <div
-        ref={containerRef}
-        className=" flex justify-center items-center pt-20 bg-white rounded-b-3xl"
-      >
-        {slices.map((src, i) => (
-          <img
-            key={i}
-            src={src}
-            alt={`slice-${i}`}
-            className="hero-slice h-[30dvw] object-contain cursor-hover-target"
-          />
-        ))}
-      </div>
-      <Textroll />
-    </section>
+    <>
+      <section className="section w-full flex items-between flex-col h-[110dvh]">
+        <div
+          ref={containerRef}
+          className=" flex justify-center items-center pt-20 bg-white rounded-b-3xl"
+        >
+          {slices.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`slice-${i}`}
+              className="hero-slice h-[30dvw] object-contain cursor-hover-target"
+            />
+          ))}
+        </div>
+        <Textroll />
+      </section>
+    </>
   );
 };
 

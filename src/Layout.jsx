@@ -9,7 +9,8 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      {/* <Loadingscreen /> */}
+
+      <Loadingscreen />
       <Cursor />
       <ScrollToTop />
       <Outlet />
