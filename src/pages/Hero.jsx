@@ -52,7 +52,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="section w-full flex items-between flex-col h-[110dvh]">
+      <section className="section w-full flex items-between flex-col h-[110dvh] max-md:h-[70dvh]">
         <div
           ref={containerRef}
           className=" flex justify-center items-center pt-20 bg-white rounded-b-3xl"

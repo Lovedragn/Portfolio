@@ -13,12 +13,12 @@ const TextRoll = () => {
   const [counter, setCounter] = useState(2005);
 
   useEffect(() => {
-    gsap.from("#counter-container", {
-      yPercent: 150,
+    gsap.fromTo("#counter-container", {
+      y: 150,
       ease: "hop",
       
     },{ 
-      yPercent: 0,
+      y: 0,
       ease: "hop",
       delay: 2.7,
     });
@@ -36,7 +36,7 @@ const TextRoll = () => {
     gsap.fromTo(
       textRef.current,
       {
-        yPercent: 150,
+        yPercent: 100,
       },
       { delay: 6, yPercent: 0 }
     );
@@ -82,17 +82,18 @@ const TextRoll = () => {
   }, [counter]);
 
   return (
-    <div className="flex text-7xl  justify-between items-end h-full w-full pb-20 font-bold text-white  px-20 overflow-hidden">
-      <div id={"text-container"} className="flex-center gap-5">
-        <h1 className="text-6xl">{`>`}</h1>
-        <div ref={textRef}>{roles[index]}</div>
+    <div className="flex max-md:flex-col text-7xl justify-around h-full items-end w-full pb-20 max-md:pb-10 font-bold text-white max-md:px-5 px-20 overflow-hidden">
+      <h1 className="max-md:text-6xl w-full flex items-start md:hidden">HI I'm</h1>
+      <div id={"text-container"} className="flex w-full gap-5">
+        <h1 className="text-6xl max-md:hidden">{`>`}</h1>
+        <div ref={textRef} className="max-md:text-3xl max-md:pt-10">{roles[index]}</div>
       </div>
       <div
         id={"counter-container"}
-        className="flex text-2xl border-4 border-white p-2 px-4 rounded-tl-4xl rounded-br-4xl"
+        className="flex text-2xl max-md:text-xl border-4 border-white p-2 px-4 rounded-tl-4xl rounded-br-4xl"
       >
         @
-        <h1 className="text-5xl" ref={countRef}>
+        <h1 className="text-5xl max-md:text-2xl" ref={countRef}>
           {counter}
         </h1>
       </div>

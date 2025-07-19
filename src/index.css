@@ -35,7 +35,7 @@
   }
 
   .line-chart {
-    @apply flex justify-center items-center w-[95dvw] border border-[var(--border-dark)] rounded-full;
+    @apply flex justify-center items-center w-[90dvw] border border-[var(--border-dark)] rounded-full;
   }
 
   .text-inverse-hover {
