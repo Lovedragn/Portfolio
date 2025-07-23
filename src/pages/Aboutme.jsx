@@ -50,7 +50,7 @@ const Aboutme = () => {
               gsap.from(self.words, {
                 scrollTrigger: {
                   trigger: aboutRef.current,
-                  start: "top 140%",
+                  start: "top 240%",
                 },
                 x: -100,
                 autoAlpha: 0,
@@ -78,7 +78,7 @@ const Aboutme = () => {
             ease: "power3.out",
             scrollTrigger: {
               trigger: videoRef.current,
-              start: "top 40%",
+             delay:7,
               onEnter: () => {
                 if (
                   videoRef.current &&
