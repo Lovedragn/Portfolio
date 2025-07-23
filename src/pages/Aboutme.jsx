@@ -78,7 +78,7 @@ const Aboutme = () => {
             ease: "power3.out",
             scrollTrigger: {
               trigger: videoRef.current,
-             start:"top 50%",
+             start:"top 40%",
               onEnter: () => {
                 if (
                   videoRef.current &&
