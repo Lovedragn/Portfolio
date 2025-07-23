@@ -122,10 +122,10 @@ const Aboutme = () => {
   return (
     <section className="flex justify-start items-center flex-col w-full text-white h-auto py-20 max-md:py-10">
       <div className="flex flex-col max-md:gap-5 items-start w-full h-auto px-10 pb-20 max-md:pb-10 max-md:px-5">
-        <div className="flex items-end gap-2 pb-15 ">
+        <div className="flex items-end gap-2 pb-15 max-md:hidden">
           <h1
             ref={titleRef}
-            className="text-white text-4xl font-bold overflow-hidden"
+            className="text-white text-4xl font-bold overflow-hidden "
             style={{ fontFamily: "subtitle" }}
           >
             About me

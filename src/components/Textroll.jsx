@@ -82,7 +82,7 @@ const TextRoll = () => {
   }, [counter]);
 
   return (
-    <div className="flex max-md:flex-col text-7xl justify-around h-full items-end w-full pb-20 max-md:pb-10 font-bold text-white max-md:px-5 px-20 overflow-hidden">
+    <div className="flex max-md:flex-col text-7xl justify-around h-full items-center w-full pb-10 max-md:pb-10 font-bold text-white max-md:px-5 px-20 overflow-hidden max-md:hidden">
       <h1 className="max-md:text-6xl w-full flex items-start md:hidden">HI I'm</h1>
       <div id={"text-container"} className="flex w-full gap-5">
         <h1 className="text-6xl max-md:hidden">{`>`}</h1>

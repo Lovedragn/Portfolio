@@ -66,7 +66,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="flex-center w-full absolute top-5 py-2 px-20 max-md:px-5 text-[1rem] max-md:text-[0.8rem]  z-[9999]">
+    <nav className="flex-center w-full font-black absolute top-5 py-2 px-20 max-md:px-5 text-[1rem] max-md:text-[0.8rem]  z-[9999]">
       <ul className="flex justify-between w-full">
         {navbar.map((item, index) => (
           <li

@@ -25,8 +25,9 @@ const Hero = () => {
       gsap.from(".hero-slice", {
         opacity: 1,
         yPercent: 80, // adjust if needed
-        duration: 5.2,
-        stagger: 0.08,
+        duration: 1.2,
+        delay: 5,
+        stagger: {amount:0.2 , from:"center"},
         ease: "power3.inOut",
       });
     },
@@ -37,22 +38,22 @@ const Hero = () => {
     gsap.fromTo(
       ".section",
       {
-        scaleY: 0.7,
+        rotateX: 40,
         clipPath: "polygon(20% 70%, 80% 70%, 80% 70%, 20% 70%)",
       },
       {
-        duration: 2,
+        duration: 2.5,
         ease: "hop",
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        delay: 5,
-        scaleY: 1,
+        delay: 4.5,
+        rotateX: 0,
       }
     );
   });
 
   return (
     <>
-      <section className="section w-full flex items-between flex-col h-[110dvh] max-md:h-[70dvh]">
+      <section className="section w-full flex items-between flex-col h-[110vh] max-md:h-full">
         <div
           ref={containerRef}
           className=" flex justify-center items-center pt-20 bg-white rounded-b-3xl"
