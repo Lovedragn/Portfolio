@@ -50,14 +50,14 @@ const Aboutme = () => {
               gsap.from(self.words, {
                 scrollTrigger: {
                   trigger: aboutRef.current,
-                  start: "bottom bottom",
+                  start: "bottom 100%",
                 },
                 x: -100,
                 autoAlpha: 0,
                 duration: 2,
                 ease: "power3.out",
                 stagger: {
-                  amount:1.5,grid:[2,2]
+                  amount:1.5
                 },
               });
             }
