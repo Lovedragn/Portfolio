@@ -75,7 +75,7 @@ const Aboutme = () => {
           {
             clipPath: "polygon(0% 0%, 81% 18%, 90% 60%, 28% 82%)",
             duration: 2,
-            ease: "power3.out",delay:6.5,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: videoRef.current,
              start:"top 80",
