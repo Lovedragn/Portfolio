@@ -78,7 +78,7 @@ const Aboutme = () => {
             ease: "power3.out",delay:6.5,
             scrollTrigger: {
               trigger: videoRef.current,
-             start:"center 50",
+             start:"top 80",
               onEnter: () => {
                 if (
                   videoRef.current &&
