@@ -50,7 +50,7 @@ const Aboutme = () => {
               gsap.from(self.words, {
                 scrollTrigger: {
                   trigger: aboutRef.current,
-                  start: "top 240%",
+                  start: "bottom bottom",
                 },
                 x: -100,
                 autoAlpha: 0,
@@ -75,10 +75,10 @@ const Aboutme = () => {
           {
             clipPath: "polygon(0% 0%, 81% 18%, 90% 60%, 28% 82%)",
             duration: 2,
-            ease: "power3.out",
+            ease: "power3.out",delay:7,
             scrollTrigger: {
               trigger: videoRef.current,
-             delay:7,
+             
               onEnter: () => {
                 if (
                   videoRef.current &&
