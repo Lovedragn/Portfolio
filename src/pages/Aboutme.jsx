@@ -50,14 +50,14 @@ const Aboutme = () => {
               gsap.from(self.words, {
                 scrollTrigger: {
                   trigger: aboutRef.current,
-                  start: "top 70%",
+                  start: "bottom 50%",
                 },
                 x: -100,
                 autoAlpha: 0,
                 duration: 2,
                 ease: "power3.out",
                 stagger: {
-                  amount:1.5,grid:[2,2]
+                  amount:1.5
                 },
               });
             }
@@ -78,7 +78,7 @@ const Aboutme = () => {
             ease: "power3.out",
             scrollTrigger: {
               trigger: videoRef.current,
-              start: "top 40%",
+             start:"top 40%",
               onEnter: () => {
                 if (
                   videoRef.current &&
@@ -140,7 +140,7 @@ const Aboutme = () => {
             <video
               ref={videoRef}
               src="/student1.mp4"
-              className="rounded-xl border-white w-[40dvh] max-w-[300px] max-md:w-[200px]"
+              className="rounded-xl border-white w-[40dvh] max-w-[300px] max-md:w-[240px]"
               muted
             />
 
