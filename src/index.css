@@ -22,10 +22,17 @@
   font-style: normal;
 }
 
-/* Set default body font */
+
 * {
   font-family: "subtitle", sans-serif;
   cursor: none;
+}
+
+/* Show default cursor on mobile view */
+@media (max-width: 768px) {
+  * {
+    cursor: default;
+  }
 }
 
 /* Custom utility classes */

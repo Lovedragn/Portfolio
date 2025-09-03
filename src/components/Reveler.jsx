@@ -27,7 +27,7 @@ export const Reveler = () => {
         gsap.to(revealerRef.current, {
           scaleY: 0,
           willChange:"transform",
-          transformOrigin:"top 0%",
+          transformOrigin:"center 50%",
           duration: 1,
           ease: "power3.inOut",
           onComplete: () => setIsTransitioning(false),
