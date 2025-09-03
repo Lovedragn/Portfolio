@@ -60,7 +60,7 @@ const Contact = ({ onClose }) => {
         ref={containerRef}
         className="flex items-start justify-center min-h-screen  px-4"
       >
-        <div className="relative bg-white w-full max-w-[720px]  aspect-[3/3] flex flex-col justify-start p-3 rounded-sm">
+        <div className="relative bg-white w-full max-w-[720px]   aspect-[3/3] flex flex-col justify-start p-3 rounded-sm">
           <div className="flex justify-between items-center border-b pb-20 mb-8 max-md:pb-10">
             <h1 className="text-5xl font-extrabold max-md:text-4xl" style={{ fontFamily: "subtitle" }}>
               Let's Talk
@@ -116,7 +116,7 @@ const Contact = ({ onClose }) => {
             <button
               type="submit"
               disabled={isSending}
-              className="mt-8 max-md:mt-0 underline text-black py-2 font-bold text-2xl self-end"
+              className="mt-8 max-md:mt-[-0.5rem] max-md:text-xl underline text-black py-2 font-bold text-2xl self-end"
             >
               {isSending ? "Sending..." : sent ? "Sent!" : "Submit"}
             </button>
