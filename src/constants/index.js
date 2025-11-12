@@ -59,7 +59,7 @@ export const works = [
     live: "https://ai-cgpa-calculator.vercel.app/",
     link: "https://github.com/Lovedragn/ai_cgpa_calculator.git",
     description:
-      "A smart GPA calculator that reads your academic PDFs and calculates CGPA automatically Useful for students who want quick and accurate results. Clean UI with instant preview and result sharing.",
+      "Reads academic PDFs and computes CGPA quickly. Clean UI with instant preview and sharing.",
     image: "/images/project-1.jpg",
   },
   {
@@ -68,7 +68,7 @@ export const works = [
     live: "https://www.figma.com/design/Pj9zE0i4FITRwEKjBNZO6z/Thread?m=auto&t=K5IvZbxAYt78gFZF-1",
     link: "https://www.figma.com/design/Pj9zE0i4FITRwEKjBNZO6z/Thread?m=auto&t=K5IvZbxAYt78gFZF-1",
     description:
-      "A clean and modern social media app UI inspired by Threads. Designed using Figma with focus post feed, profiles, and interactive actions. Great for quick inspiration or as a base for real-time social platforms.",
+      "Figma UI for a Threads-style social app: post feed, profiles, and interactions. Good prototype base.",
     image: "/images/project-2.jpg",
   },
   {
@@ -77,7 +77,7 @@ export const works = [
     live: "https://techinta.vercel.app/",
     link: "https://github.com/Lovedragn/Infotech-website.git",
     description:
-      "A marketing site made with React, Three.js, and framer-motion. Responsive layout and fast performance make it ideal for agencies or startups , a creative landing page.",
+      "Marketing site built with React, Three.js, and framer-motion. Responsive, fast landing page.",
     image: "/images/project-3.jpg",
   },
   {
@@ -86,7 +86,7 @@ export const works = [
     live: "https://www.figma.com/design/Ra30M2uGB2SsdASPfkjyH7/Productivity-Application?m=auto&t=K5IvZbxAYt78gFZF-6",
     link: "https://www.figma.com/design/Ra30M2uGB2SsdASPfkjyH7/Productivity-Application?m=auto&t=K5IvZbxAYt78gFZF-6",
     description:
-      "A simple yet powerful productivity app design in Figma. Includes daily planner, task lists, and progress tracking UI clear workflow and smooth navigation. Perfect as a base for mobile task management apps.",
+      "Figma productivity design with planner, task lists, and progress tracking. Simple, clear workflow.",
     image: "/images/project-4.jpg",
   },
   {
@@ -95,12 +95,24 @@ export const works = [
     live: "https://leetcode.com/u/sujithsappani/",
     link: "https://github.com/Lovedragn/LeetCode-Problems/",
     description:
-      "My personal repository of solved coding problems from LeetCode Demonstrates consistent practice and problem-solving skills. Great reference for interviews and improving logic building.",
+      "Collection of solved LeetCode problems demonstrating steady practice and problem-solving.",
     image: "/images/project-5.jpg",
+  },
+  {
+    id: "06",
+    text: "NGO Connect",
+    live: "https://www.figma.com/design/4C1K3vghAPyIKfIgff0DIA/NGOConnnect?m=auto&t=VvKSj7UNZeLw4cZv-1",
+    link: "https://www.figma.com/design/4C1K3vghAPyIKfIgff0DIA/NGOConnnect?m=auto&t=VvKSj7UNZeLw4cZv-1",
+    description:
+      "Figma UI for NGO Connect: donor onboarding, donation flows, admin dashboards, reporting and CSV export. Focus on clarity and responsiveness.",
+    image: "/images/project-3.jpg",
   },
 ];
 
-
 export const footer = `@sujith | ${new Date().getFullYear()}`;
 
-export const details = {name : "Sujith Sappani" , location : "Alandur, Chennai" , email : "Sujith.sappani@gmail.com"}; 
+export const details = {
+  name: "Sujith Sappani",
+  location: "Alandur, Chennai",
+  email: "Sujith.sappani@gmail.com",
+};
