@@ -113,15 +113,17 @@ const Navbar = () => {
               className="cursor-hover-inverse-target relative overflow-hidden"
               ref={(el) => (linkRefs.current[index + navbar.length] = el)}
             >
-              <AnimatedLink
+              <a
                 id={"navlink"}
-                to={item.link}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ fontFamily: "paragraph" }}
-                className="mix-blend-difference relative"
+                className="mix-blend-difference relative no-underline text-inherit"
               >
                 {item.text}
                 <div className="underline-bar absolute bottom-0 left-0 h-[2px] w-full bg-white origin-left scale-x-0" />
-              </AnimatedLink>
+              </a>
             </li>
           ))}
         </ul>
