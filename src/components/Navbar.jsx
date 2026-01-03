@@ -91,7 +91,7 @@ const Navbar = () => {
                 }
               >
                 {item.text}
-                <div className="underline-bar absolute bottom-0 left-0 h-[2px] w-full bg-white origin-left scale-x-0" />
+                <div className="underline-bar absolute bottom-0 left-0 h-[3px] w-full bg-white origin-left scale-x-0" />
               </button>
             ) : (
               <AnimatedLink
@@ -101,7 +101,7 @@ const Navbar = () => {
                 className="mix-blend-difference relative"
               >
                 {item.text}
-                <div className="underline-bar absolute bottom-0 left-0 h-[2px] w-full bg-white origin-left scale-x-0" />
+                <div className="underline-bar absolute bottom-0 left-0 h-[3px] w-full bg-white origin-left scale-x-0" />
               </AnimatedLink>
             )}
           </li>
@@ -122,7 +122,7 @@ const Navbar = () => {
                 className="mix-blend-difference relative no-underline text-inherit"
               >
                 {item.text}
-                <div className="underline-bar absolute bottom-0 left-0 h-[2px] w-full bg-white origin-left scale-x-0" />
+                <div className="underline-bar absolute bottom-0 left-0 h-[3px] w-full bg-white origin-left scale-x-0" />
               </a>
             </li>
           ))}
