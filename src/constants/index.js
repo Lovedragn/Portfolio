@@ -105,7 +105,7 @@ export const works = [
     link: "https://www.figma.com/design/4C1K3vghAPyIKfIgff0DIA/NGOConnnect?m=auto&t=VvKSj7UNZeLw4cZv-1",
     description:
       "Figma UI for NGO Connect: donor onboarding, donation flows, admin dashboards, reporting and CSV export. Focus on clarity and responsiveness.",
-    image: "/images/project-3.jpg",
+    image: "/images/project-6.jpg",
   },
   {
     id: "07",
