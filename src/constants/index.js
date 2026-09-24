@@ -107,6 +107,15 @@ export const works = [
       "Figma UI for NGO Connect: donor onboarding, donation flows, admin dashboards, reporting and CSV export. Focus on clarity and responsiveness.",
     image: "/images/project-3.jpg",
   },
+  {
+    id: "07",
+    text: "HulyPay",
+    live: "https://huly-pay.vercel.app",
+    link: "https://github.com/Lovedragn/Huly-Pay.git",
+    description:
+      "HulyPay is an intelligent payment tracking app for managing payments, transactions, and daily spending with smart insights.",
+    image: "/images/project-7.jpg",
+  },
 ];
 
 export const footer = `@sujith | ${new Date().getFullYear()}`;
