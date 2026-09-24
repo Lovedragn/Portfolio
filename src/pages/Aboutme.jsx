@@ -1,6 +1,6 @@
 import Skillroll from "../components/Skillroll";
 import { aboutme } from "../constants/index.js";
-import SujithCV from "../assets/Sujith CV.pdf";
+import SujithCV from "../assets/Sujith_CV.pdf";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
