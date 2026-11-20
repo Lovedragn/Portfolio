@@ -13,6 +13,7 @@ import {
 import Layout from "./Layout";
 import { TransitionProvider } from "./context/TransitionContext";
 import { Reveler } from "./components/Reveler";
+import { Analytics } from "@vercel/analytics/react";
 
 function ModalSwitch() {
   const location = useLocation();
@@ -49,5 +50,6 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <ModalSwitch />
     </BrowserRouter>
+    <Analytics />
   </TransitionProvider>
 );
